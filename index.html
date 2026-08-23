@@ -161,11 +161,16 @@
       height: 100%;
     }
     .service-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(22,163,74,.18); }
-    .service-card img {
-      width: 100%; height: 200px; object-fit: cover; display: block;
-      background: #f0fdf4; transition: .3s;
+    .service-card .img-wrap {
+      width: 100%; height: 200px; overflow: hidden;
+      background: #f0fdf4; display: flex; align-items: center; justify-content: center;
+      padding: 8px;
     }
-    .service-card:hover img { transform: scale(1.02); }
+    .service-card .img-wrap img {
+      width: 100%; height: 100%; object-fit: contain;
+      display: block; transition: .3s;
+    }
+    .service-card:hover .img-wrap img { transform: scale(1.02); }
     .service-card h3 {
       font-size: 20px; color: #4ade80; padding: 20px 20px 8px;
       line-height: 1.3; font-weight: 700;
@@ -178,12 +183,12 @@
       .section-heading { margin-bottom: 35px; }
       .section-heading h2 { font-size: 30px; }
       .services-grid { grid-template-columns: repeat(2,1fr); gap: 20px; }
-      .service-card img { height: 190px; }
+      .service-card .img-wrap { height: 190px; }
     }
     @media (max-width:576px) {
       .services-grid { grid-template-columns: 1fr; }
       .section-heading h2 { font-size: 26px; }
-      .service-card img { height: 200px; }
+      .service-card .img-wrap { height: 200px; }
     }
 
     /* BADGE SECTION */
@@ -330,17 +335,61 @@
       <p>We provide complete Quickbooks migration, setup, troubleshooting and bookkeeping solutions for businesses.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card"><img src="images/service-01.jpg" alt="Desktop Migration"><h3>Desktop Migration</h3><p>Securely migrate your Quickbooks Desktop data to the latest version without data loss.</p></div>
-      <div class="service-card"><img src="images/proadviser-03.avif" alt="Online Setup"><h3>Online Setup</h3><p>Complete Quickbooks Online configuration for smooth accounting management.</p></div>
-      <div class="service-card"><img src="images/service-02.jpg" alt="Data Repair"><h3>Data Repair & Recovery</h3><p>Recover damaged company files and repair Quickbooks data errors professionally.</p></div>
-      <div class="service-card"><img src="images/proadviser-04.avif" alt="Bank Sync"><h3>Bank Sync Fix</h3><p>Resolve banking connection issues and fix transaction sync problems quickly.</p></div>
-      <div class="service-card"><img src="images/proadviser-05.jpg" alt="Billing"><h3>Billing Support</h3><p>Get help with subscription billing, renewal issues and payment errors.</p></div>
-      <div class="service-card"><img src="images/proadviser-06.png" alt="Subscription"><h3>Subscription Management</h3><p>Manage Quickbooks subscriptions, upgrades and account settings efficiently.</p></div>
-      <div class="service-card"><img src="images/service-03.jpg" alt="Accounting"><h3>Accounting Setup</h3><p>Professional assistance for proper chart of accounts and accounting workflows.</p></div>
-      <div class="service-card"><img src="images/service-04.jpg" alt="Tax"><h3>Tax Report Assistance</h3><p>Generate accurate tax reports and organize financial documents easily.</p></div>
-      <div class="service-card"><img src="images/service-05.jpg" alt="Reporting"><h3>Business Reporting</h3><p>Create advanced reports and gain better insights into business performance.</p></div>
-      <div class="service-card"><img src="images/service-06.png" alt="Inventory"><h3>Inventory Setup</h3><p>Configure inventory tracking systems for better stock management accuracy.</p></div>
-      <div class="service-card"><img src="images/proadviser-04.avif" alt="Payroll"><h3>Payroll Configuration</h3><p>Set up payroll systems correctly for employee salary and tax management.</p></div>
+      <div class="service-card">
+        <div class="img-wrap"><img src="images/service-01.jpg" alt="Desktop Migration"></div>
+        <h3>Desktop Migration</h3>
+        <p>Securely migrate your Quickbooks Desktop data to the latest version without data loss.</p>
+      </div>
+      <div class="service-card">
+        <div class="img-wrap"><img src="images/proadviser-03.avif" alt="Online Setup"></div>
+        <h3>Online Setup</h3>
+        <p>Complete Quickbooks Online configuration for smooth accounting management.</p>
+      </div>
+      <div class="service-card">
+        <div class="img-wrap"><img src="images/service-02.jpg" alt="Data Repair"></div>
+        <h3>Data Repair & Recovery</h3>
+        <p>Recover damaged company files and repair Quickbooks data errors professionally.</p>
+      </div>
+      <div class="service-card">
+        <div class="img-wrap"><img src="images/proadviser-04.avif" alt="Bank Sync"></div>
+        <h3>Bank Sync Fix</h3>
+        <p>Resolve banking connection issues and fix transaction sync problems quickly.</p>
+      </div>
+      <div class="service-card">
+        <div class="img-wrap"><img src="images/proadviser-05.jpg" alt="Billing"></div>
+        <h3>Billing Support</h3>
+        <p>Get help with subscription billing, renewal issues and payment errors.</p>
+      </div>
+      <div class="service-card">
+        <div class="img-wrap"><img src="images/proadviser-06.png" alt="Subscription"></div>
+        <h3>Subscription Management</h3>
+        <p>Manage Quickbooks subscriptions, upgrades and account settings efficiently.</p>
+      </div>
+      <div class="service-card">
+        <div class="img-wrap"><img src="images/service-03.jpg" alt="Accounting"></div>
+        <h3>Accounting Setup</h3>
+        <p>Professional assistance for proper chart of accounts and accounting workflows.</p>
+      </div>
+      <div class="service-card">
+        <div class="img-wrap"><img src="images/service-04.jpg" alt="Tax"></div>
+        <h3>Tax Report Assistance</h3>
+        <p>Generate accurate tax reports and organize financial documents easily.</p>
+      </div>
+      <div class="service-card">
+        <div class="img-wrap"><img src="images/service-05.jpg" alt="Reporting"></div>
+        <h3>Business Reporting</h3>
+        <p>Create advanced reports and gain better insights into business performance.</p>
+      </div>
+      <div class="service-card">
+        <div class="img-wrap"><img src="images/service-06.png" alt="Inventory"></div>
+        <h3>Inventory Setup</h3>
+        <p>Configure inventory tracking systems for better stock management accuracy.</p>
+      </div>
+      <div class="service-card">
+        <div class="img-wrap"><img src="images/proadviser-04.avif" alt="Payroll"></div>
+        <h3>Payroll Configuration</h3>
+        <p>Set up payroll systems correctly for employee salary and tax management.</p>
+      </div>
     </div>
   </div>
 </section>
