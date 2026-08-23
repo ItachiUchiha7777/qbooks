@@ -10,16 +10,16 @@
     body { background: #ffffff; color: #1f2937; line-height: 1.6; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-    /* GREEN + WHITE THEME */
+    /* GREEN + WHITE THEME — using #2CA01C as primary green */
     :root {
-      --green-primary: #2b8c4a;
-      --green-light: #e8f5ed;
-      --green-hover: #1f6e3a;
-      --green-soft: #f0faf3;
+      --green-primary: #2CA01C;
+      --green-light: #e6f5e3;
+      --green-hover: #1f7a14;
+      --green-soft: #f2faf0;
       --white: #ffffff;
       --gray-text: #4b5563;
-      --shadow-sm: 0 4px 14px rgba(43, 140, 74, 0.08);
-      --shadow-hover: 0 10px 28px rgba(43, 140, 74, 0.12);
+      --shadow-sm: 0 4px 14px rgba(44, 160, 28, 0.08);
+      --shadow-hover: 0 10px 28px rgba(44, 160, 28, 0.15);
       --radius: 16px;
     }
 
@@ -68,7 +68,7 @@
     .form-panel h3 { font-size: 22px; color: #0b2b1a; margin-bottom: 18px; text-align: center; font-weight: 700; }
     .form-panel label { font-weight: 600; font-size: 14px; color: #1f2937; display: block; margin: 14px 0 4px; }
     .form-panel input, .form-panel textarea { width: 100%; padding: 12px 16px; border: 1px solid #d9e2e8; border-radius: 12px; font-size: 15px; transition: 0.2s; background: #fafcfd; }
-    .form-panel input:focus, .form-panel textarea:focus { border-color: var(--green-primary); outline: 2px solid rgba(43, 140, 74, 0.15); background: #fff; }
+    .form-panel input:focus, .form-panel textarea:focus { border-color: var(--green-primary); outline: 2px solid rgba(44, 160, 28, 0.2); background: #fff; }
     .form-panel textarea { min-height: 90px; resize: vertical; }
     .form-panel .submit-btn { background: var(--green-primary); color: #fff; border: none; padding: 14px; border-radius: 60px; font-weight: 700; font-size: 16px; width: 100%; margin-top: 20px; cursor: pointer; transition: 0.25s; }
     .form-panel .submit-btn:hover { background: var(--green-hover); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
@@ -134,7 +134,7 @@
 
     /* BANNER */
     .banner { width: 100%; overflow: hidden; background: var(--green-soft); }
-    .banner img { width: 100%; height: auto; display: block; max-height: 320px; object-fit: cover; }
+    .banner img { width: 100%; height: auto; display: block; max-height: 100%; object-fit: cover; }
 
     /* CTA */
     .cta-section { padding: 50px 0; }
@@ -326,7 +326,7 @@
   </div>
 </section>
 
-<!-- FOOTER (legal links removed) -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <h3>Quickbooks Assistance</h3>
