@@ -2,31 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <title>Quickbooks Assistance – Support & Migration</title>
   <style>
-    /* RESET */
+    /* RESET & BASE */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-    body { background: #f6f7fb; color: #1f2937; }
+    body { background: #f6f7fb; color: #1f2937; line-height: 1.5; }
 
-    .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
     /* TOP OFFER BAR */
     .top-offer { background: #58e56d; padding: 14px 20px; }
     .offer-container {
-      max-width: 1200px; margin: auto; display: flex;
-      justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;
+      max-width: 1200px; margin: 0 auto; display: flex;
+      justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap;
     }
     .top-offer p { margin: 0; color: #000; font-size: 16px; font-weight: 500; }
     .top-offer strong { font-size: 20px; font-weight: 800; }
     .offer-btn {
       background: #000; color: #fff; text-decoration: none;
-      padding: 12px 28px; border-radius: 8px; font-weight: 700; transition: .3s;
+      padding: 10px 28px; border-radius: 8px; font-weight: 700; transition: .3s;
     }
     .offer-btn:hover { background: #222; }
     @media (max-width:768px) {
-      .offer-container { flex-direction: column; gap: 15px; text-align: center; }
-      .top-offer p { font-size: 15px; line-height: 1.6; }
+      .offer-container { flex-direction: column; gap: 12px; text-align: center; }
+      .top-offer p { font-size: 15px; }
       .offer-btn { width: 180px; text-align: center; }
     }
 
@@ -37,11 +37,9 @@
     }
     .nav {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 8px 0;
+      padding: 8px 0; gap: 10px;
     }
     .logo-img { height: 45px; width: auto; max-width: 120px; object-fit: contain; display: block; }
-    .logo { font-size: 24px; font-weight: 800; }
-    .logo span { color: #4ade80; }
     .cta-btn {
       background: #4ade80; color: #fff; padding: 8px 16px;
       border-radius: 8px; font-weight: 700; text-decoration: none; white-space: nowrap;
@@ -57,60 +55,61 @@
     .nav-links li a:hover { color: #4ade80; }
 
     @media (max-width:768px) {
-      .nav { flex-direction: column; gap: 12px; padding: 10px 0; }
+      .nav { flex-direction: column; gap: 10px; padding: 10px 0; }
       .logo-img { height: 40px; }
       .navbar { width: 100%; }
-      .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
       .nav-links li a { font-size: 15px; }
       .cta-btn { width: 100%; text-align: center; }
     }
 
     /* HERO */
-    .hero { padding: 80px 0; background: linear-gradient(135deg,#dcfce7,#22c55e); }
+    .hero { padding: 70px 0; background: linear-gradient(135deg,#dcfce7,#22c55e); }
     .hero-grid {
       display: grid; grid-template-columns: 1.2fr 0.8fr;
       gap: 35px; align-items: start;
     }
-    .hero h1 { font-size: 52px; line-height: 1.1; margin-bottom: 18px; color: #111827; }
-    .hero p { color: #4b5563; font-size: 17px; line-height: 1.8; }
-    .hero-actions { display: flex; gap: 14px; margin-top: 25px; flex-wrap: wrap; }
+    .hero h1 { font-size: 48px; line-height: 1.1; margin-bottom: 12px; color: #111827; }
+    .hero h2 { font-size: 26px; color: #1f2937; margin-bottom: 12px; font-weight: 600; }
+    .hero p { color: #4b5563; font-size: 17px; line-height: 1.7; }
+    .hero-actions { display: flex; gap: 14px; margin-top: 22px; flex-wrap: wrap; }
     .btn-primary {
-      background: #4ade80; color: #fff; padding: 14px 22px;
-      border-radius: 12px; text-decoration: none; font-weight: 700; transition: .3s;
+      background: #4ade80; color: #fff; padding: 14px 24px;
+      border-radius: 12px; text-decoration: none; font-weight: 700; transition: .3s; display: inline-block;
     }
     .btn-primary:hover { background: #22c55e; }
     .btn-outline {
-      border: 1px solid #4ade80; padding: 14px 22px; border-radius: 12px;
+      border: 1px solid #4ade80; padding: 14px 24px; border-radius: 12px;
       text-decoration: none; color: #4ade80; font-weight: 600;
-      background: #fff; transition: .3s;
+      background: #fff; transition: .3s; display: inline-block;
     }
     .btn-outline:hover { background: #4ade80; color: #fff; }
 
     .grid-3 {
       display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 18px; margin-top: 25px;
+      gap: 16px; margin-top: 25px;
     }
     .card {
-      background: #fff; padding: 22px; border-radius: 16px;
+      background: #fff; padding: 20px; border-radius: 16px;
       box-shadow: 0 8px 20px rgba(22,163,74,.08);
       border: 1px solid #22c55e; transition: .3s;
     }
     .card:hover { transform: translateY(-6px); }
-    .card h3 { font-size: 18px; margin-bottom: 10px; color: #4ade80; }
-    .card p { font-size: 14px; color: #666; line-height: 1.7; }
+    .card h3 { font-size: 17px; margin-bottom: 8px; color: #4ade80; }
+    .card p { font-size: 14px; color: #666; line-height: 1.6; }
 
-    /* CONTACT FORM (replaces video panel) */
+    /* CONTACT FORM */
     .form-panel {
       background: #fff; border-radius: 18px; padding: 28px 24px;
       box-shadow: 0 10px 25px rgba(0,0,0,.08);
       position: sticky; top: 90px;
     }
     .form-panel h3 {
-      margin-bottom: 20px; font-size: 22px; color: #111827;
+      margin-bottom: 18px; font-size: 22px; color: #111827;
       border-left: 5px solid #4ade80; padding-left: 14px;
     }
     .form-panel label {
-      display: block; font-weight: 600; margin-top: 16px; margin-bottom: 4px;
+      display: block; font-weight: 600; margin-top: 14px; margin-bottom: 4px;
       font-size: 14px; color: #1f2937;
     }
     .form-panel input, .form-panel textarea {
@@ -120,11 +119,11 @@
     .form-panel input:focus, .form-panel textarea:focus {
       border-color: #4ade80; outline: none; box-shadow: 0 0 0 3px rgba(74,222,128,.2);
     }
-    .form-panel textarea { height: 100px; resize: vertical; }
+    .form-panel textarea { height: 90px; resize: vertical; }
     .form-panel .btn-submit {
       background: #4ade80; color: #fff; border: none;
       padding: 14px 22px; border-radius: 12px; font-weight: 700;
-      font-size: 16px; width: 100%; margin-top: 22px; cursor: pointer;
+      font-size: 16px; width: 100%; margin-top: 20px; cursor: pointer;
       transition: .3s;
     }
     .form-panel .btn-submit:hover { background: #22c55e; }
@@ -132,9 +131,10 @@
     .form-success { display: none; color: #16a34a; font-weight: 600; text-align: center; margin-top: 16px; }
 
     @media (max-width:991px) {
-      .hero { padding: 60px 0; }
+      .hero { padding: 50px 0; }
       .hero-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 38px; }
+      .hero h1 { font-size: 34px; }
+      .hero h2 { font-size: 22px; }
       .grid-3 { grid-template-columns: 1fr; }
       .hero-actions { flex-direction: column; }
       .btn-primary, .btn-outline { width: 100%; text-align: center; }
@@ -142,80 +142,81 @@
     }
 
     /* SERVICES SECTION */
-    .services-section { padding: 90px 0; background: #dcfce7; }
-    .section-heading { text-align: center; margin-bottom: 60px; }
+    .services-section { padding: 80px 0; background: #dcfce7; }
+    .section-heading { text-align: center; margin-bottom: 50px; }
     .section-heading span {
-      color: #4ade80; font-size: 15px; font-weight: 700;
+      color: #4ade80; font-size: 14px; font-weight: 700;
       letter-spacing: 1px; text-transform: uppercase;
     }
-    .section-heading h2 { font-size: 42px; margin: 15px 0; color: #111827; line-height: 1.2; }
-    .section-heading p { max-width: 750px; margin: auto; color: #666; font-size: 16px; line-height: 1.7; }
+    .section-heading h2 { font-size: 38px; margin: 12px 0; color: #111827; line-height: 1.2; }
+    .section-heading p { max-width: 750px; margin: 0 auto; color: #666; font-size: 16px; line-height: 1.7; }
 
     .services-grid {
-      display: grid; grid-template-columns: repeat(4,1fr); gap: 28px;
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 24px;
     }
     .service-card {
       background: #fff; border-radius: 18px; overflow: hidden;
       box-shadow: 0 5px 18px rgba(0,0,0,.08); transition: .35s;
       border-top: 5px solid #4ade80; display: flex; flex-direction: column;
+      height: 100%;
     }
-    .service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(22,163,74,.18); }
+    .service-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(22,163,74,.18); }
     .service-card img {
       width: 100%; height: 200px; object-fit: cover; display: block;
       background: #f0fdf4; transition: .3s;
     }
     .service-card:hover img { transform: scale(1.02); }
     .service-card h3 {
-      font-size: 22px; color: #4ade80; padding: 22px 22px 10px;
+      font-size: 20px; color: #4ade80; padding: 20px 20px 8px;
       line-height: 1.3; font-weight: 700;
     }
-    .service-card p { padding: 0 22px 25px; color: #555; font-size: 15px; line-height: 1.8; flex:1; }
+    .service-card p { padding: 0 20px 22px; color: #555; font-size: 15px; line-height: 1.7; flex:1; }
 
     @media (max-width:1100px) { .services-grid { grid-template-columns: repeat(3,1fr); } }
     @media (max-width:991px) {
-      .services-section { padding: 70px 0; }
-      .section-heading { margin-bottom: 40px; }
-      .section-heading h2 { font-size: 34px; }
-      .services-grid { grid-template-columns: repeat(2,1fr); gap: 22px; }
-      .service-card img { height: 200px; }
+      .services-section { padding: 60px 0; }
+      .section-heading { margin-bottom: 35px; }
+      .section-heading h2 { font-size: 30px; }
+      .services-grid { grid-template-columns: repeat(2,1fr); gap: 20px; }
+      .service-card img { height: 190px; }
     }
     @media (max-width:576px) {
       .services-grid { grid-template-columns: 1fr; }
-      .section-heading h2 { font-size: 28px; }
-      .service-card img { height: 220px; }
+      .section-heading h2 { font-size: 26px; }
+      .service-card img { height: 200px; }
     }
 
     /* BADGE SECTION */
-    .badge-section { padding: 80px 0; background: #ffffff; }
-    .badge-heading { text-align: center; margin-bottom: 50px; }
+    .badge-section { padding: 70px 0; background: #ffffff; }
+    .badge-heading { text-align: center; margin-bottom: 45px; }
     .badge-heading span {
       color: #4ade80; font-size: 14px; font-weight: 700;
       letter-spacing: 1px; text-transform: uppercase;
     }
-    .badge-heading h2 { font-size: 42px; color: #111827; margin: 15px 0; }
-    .badge-heading p { max-width: 700px; margin: auto; color: #666; line-height: 1.7; }
+    .badge-heading h2 { font-size: 38px; color: #111827; margin: 12px 0; }
+    .badge-heading p { max-width: 700px; margin: 0 auto; color: #666; line-height: 1.7; }
 
-    .badge-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 25px; align-items: center; }
+    .badge-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; align-items: center; }
     .badge-box {
       background: #dcfce7; border: 2px solid #22c55e; border-radius: 18px;
-      padding: 25px; text-align: center; transition: .3s;
+      padding: 22px; text-align: center; transition: .3s;
     }
-    .badge-box:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(22,163,74,.12); }
-    .badge-box img { width: 100%; max-width: 180px; height: 120px; object-fit: contain; margin: auto; }
+    .badge-box:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(22,163,74,.12); }
+    .badge-box img { width: 100%; max-width: 160px; height: 110px; object-fit: contain; margin: 0 auto; }
     @media (max-width:991px) { .badge-grid { grid-template-columns: repeat(2,1fr); } }
     @media (max-width:576px) { .badge-grid { grid-template-columns: 1fr; } }
 
     /* QB ERRORS */
-    .qb-errors-section { padding: 80px 0; background: #dcfce7; }
-    .qb-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .qb-errors-section { padding: 70px 0; background: #dcfce7; }
+    .qb-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
     .qb-item { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
     .qb-question {
-      width: 100%; text-align: left; padding: 18px; background: #4ade80;
-      color: #fff; border: none; cursor: pointer; font-weight: 600;
+      width: 100%; text-align: left; padding: 16px 18px; background: #4ade80;
+      color: #fff; border: none; cursor: pointer; font-weight: 600; font-size: 15px;
     }
     .qb-answer { max-height: 0; overflow: hidden; transition: 0.4s; padding: 0 18px; }
     .qb-item.active .qb-answer { max-height: 200px; }
-    .qb-answer p { padding: 15px 0; color: #555; }
+    .qb-answer p { padding: 14px 0; color: #555; }
     @media(max-width:768px){ .qb-grid { grid-template-columns:1fr; } }
 
     /* BANNER */
@@ -223,30 +224,29 @@
     .banner img { width: 100%; height: auto; display: block; }
 
     /* MIGRATION */
-    .migration { background: #fff; padding: 80px 0; }
-    .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 15px; margin-top: 30px; }
+    .migration { background: #fff; padding: 70px 0; }
+    .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 15px; margin-top: 28px; }
     .step { background: #f9fafb; padding: 20px; border-radius: 15px; border-left: 4px solid #4ade80; }
+    .step h3 { color: #4ade80; margin-bottom: 6px; }
     @media(max-width:900px){ .steps { grid-template-columns:1fr; } }
 
     /* CTA */
-    .cta { background: #4ade80; color: #fff; padding: 60px 20px; text-align: center; border-radius: 20px; }
-    .cta h2 { font-size: 36px; }
+    .cta { background: #4ade80; color: #fff; padding: 50px 20px; text-align: center; border-radius: 20px; }
+    .cta h2 { font-size: 34px; }
     .cta .btn-primary { background: #fff; color: #18C10B; }
 
-    /* FOOTER (no legal links) */
-    footer { background: #0f172a; color: #fff; padding: 70px 0; text-align: center; }
-    footer h3 { font-size: 34px; margin-bottom: 12px; }
-    .footer-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 30px 0; }
+    /* FOOTER */
+    footer { background: #0f172a; color: #fff; padding: 60px 0; text-align: center; }
+    footer h3 { font-size: 32px; margin-bottom: 10px; }
+    .footer-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 25px 0; }
     .footer-links a { background: #fff; color: #4ade80; padding: 10px 20px; border-radius: 30px; font-weight: 700; text-decoration: none; }
     .copy { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); }
-    .disclaimer { margin-top: 20px; opacity: .8; font-size: 13px; }
+    .disclaimer { margin-top: 18px; opacity: .8; font-size: 13px; }
 
-    /* extra */
-    .section { padding: 70px 0; }
-    .title { text-align: center; margin-bottom: 40px; }
-    .title h2 { font-size: 34px; }
-    .title p { color: #666; margin-top: 10px; }
-    .mobile-call { display: none; }
+    .section { padding: 60px 0; }
+    .title { text-align: center; margin-bottom: 35px; }
+    .title h2 { font-size: 32px; }
+    .title p { color: #666; margin-top: 8px; }
   </style>
 </head>
 <body>
@@ -281,7 +281,7 @@
   <div class="container hero-grid">
     <div>
       <h1>Quickbooks Assistance Center</h1>
-      <h2 style="font-size:28px; color:#1f2937;">Fix Errors, Migration & Setup Help</h2>
+      <h2>Fix Errors, Migration & Setup Help</h2>
       <p>Upgrade from Desktop to Cloud Accounting with secure data migration, expert support, and zero data loss guarantee.</p>
       <div class="hero-actions">
         <a href="tel:+18004421838" class="btn-primary">📞 +1-800-442-1838</a>
@@ -295,7 +295,7 @@
       </div>
     </div>
 
-    <!-- CONTACT FORM (replaces video) -->
+    <!-- CONTACT FORM -->
     <div class="form-panel" id="contactFormPanel">
       <h3>Request Assistance</h3>
       <form id="contactForm">
@@ -452,14 +452,12 @@
   </div>
 </section>
 
-<!-- FOOTER (no legal links) -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <h3>Quickbooks Assistance</h3>
     <p>Professional support and bookkeeping assistance services.</p>
-    <div class="footer-links">
-      <!-- removed Privacy, Terms, Refund, Disclaimer links as requested -->
-    </div>
+    <div class="footer-links"></div>
     <div class="copy">© 2026 Quickbooks Assistance. All Rights Reserved.</div>
     <p class="disclaimer">Disclaimer: The product images and names displayed above are for reference purposes only. Quickbooks Assistance is an independent service provider and is not affiliated with or endorsed by any third-party brand. All trademarks belong to their respective owners.</p>
   </div>
@@ -467,14 +465,12 @@
 
 <!-- SCRIPTS -->
 <script>
-  // Accordion for errors
   document.querySelectorAll(".qb-question").forEach(btn=>{
     btn.addEventListener("click",()=>{
       btn.parentElement.classList.toggle("active");
     });
   });
 
-  // Contact form – Web3Forms (test mode)
   const form = document.getElementById('contactForm');
   const nameInput = document.getElementById('name');
   const phoneInput = document.getElementById('phone');
@@ -489,19 +485,15 @@
     e.preventDefault();
     let valid = true;
 
-    // Name
     if (!nameInput.value.trim()) { nameErr.style.display = 'block'; valid = false; } else { nameErr.style.display = 'none'; }
-    // Phone (simple)
     if (!phoneInput.value.trim() || phoneInput.value.trim().length < 7) { phoneErr.style.display = 'block'; valid = false; } else { phoneErr.style.display = 'none'; }
-    // Email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) { emailErr.style.display = 'block'; valid = false; } else { emailErr.style.display = 'none'; }
 
     if (!valid) return;
 
-    // Web3Forms integration (use your access key)
     const formData = new FormData();
-    formData.append('access_key', 'YOUR_ACCESS_KEY'); // replace with actual key
+    formData.append('access_key', 'YOUR_ACCESS_KEY');
     formData.append('name', nameInput.value);
     formData.append('phone', phoneInput.value);
     formData.append('email', emailInput.value);
@@ -525,7 +517,7 @@
     .catch(() => alert('Network error. Please check your connection.'));
   });
 </script>
-<!-- LiveChat (unchanged) -->
+<!-- LiveChat -->
 <script>
   window.__lc = window.__lc || {};
   window.__lc.license = 19882328;
