@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickBooks Assistance – Services</title>
+  <style>
+    /* RESET & BASE */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', Arial, sans-serif; }
+    body { background: #f6f7fb; color: #1f2937; line-height: 1.5; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* BANNER SERVICE - no gradient */
+    .banner-service {
+      background: #dcfce7;
+      padding: 60px 0;
+      text-align: center;
+      /* border-bottom: 3px solid #4ade80; */
+    }
+    .banner-service h1 {
+      font-size: 48px;
+      color: #111827;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .banner-service h1 span { color: #4ade80; }
+    .breadcrumb-nav ol {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      font-size: 16px;
+      color: #4b5563;
+    }
+    .breadcrumb-nav ol li { display: inline; }
+    .breadcrumb-nav ol li a {
+      text-decoration: none;
+      color: #4ade80;
+      font-weight: 600;
+    }
+    .breadcrumb-nav ol li a:hover { color: #22c55e; }
+
+    /* SERVICE SECTION */
+    .py-5 { padding: 70px 0; }
+    .service-heading {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .service-heading h3 {
+      font-size: 38px;
+      color: #111827;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+    .service-heading h3::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #4ade80;
+      margin: 10px auto 0;
+      border-radius: 4px;
+    }
+
+    .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .col-md-4 { width: 100%; }
+
+    .service-card {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(0,0,0,.08);
+      transition: .35s;
+      border-top: 5px solid #4ade80;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      cursor: default;
+    }
+    .service-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(22,163,74,.18); }
+    .service-image {
+      width: 100%; height: 200px; overflow: hidden;
+      background: #f0fdf4; display: flex; align-items: center; justify-content: center;
+    }
+    .service-image img {
+      width: 100%; height: 100%; object-fit: contain;
+      display: block; transition: .3s;
+    }
+    .service-card:hover .service-image img { transform: scale(1.02); }
+    .service-txt { padding: 20px 22px 24px; flex: 1; }
+    .service-txt h4 {
+      font-size: 20px; color: #4ade80; margin-bottom: 8px;
+      font-weight: 700; line-height: 1.3;
+    }
+    .service-txt h4 a { color: #4ade80; text-decoration: none; cursor: default; }
+    .service-txt p {
+      color: #555; font-size: 15px; line-height: 1.7;
+    }
+
+    @media (max-width:1100px) { .row { grid-template-columns: repeat(3,1fr); } }
+    @media (max-width:991px) {
+      .row { grid-template-columns: repeat(2,1fr); gap: 22px; }
+      .service-heading h3 { font-size: 32px; }
+      .banner-service h1 { font-size: 36px; }
+    }
+    @media (max-width:576px) {
+      .row { grid-template-columns: 1fr; }
+      .service-heading h3 { font-size: 28px; }
+      .banner-service h1 { font-size: 28px; }
+      .service-image { height: 180px; }
+    }
+
+    /* SECTION & CTA */
+    .section { padding: 60px 0; }
+    .cta {
+      background: #4ade80;
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+      border-radius: 20px;
+    }
+    .cta h2 { font-size: 34px; font-weight: 700; margin-bottom: 6px; }
+    .cta p { font-size: 18px; opacity: 0.95; }
+    .cta .btn-primary {
+      display: inline-block;
+      background: #fff;
+      color: #18C10B;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 18px;
+      text-decoration: none;
+      transition: .3s;
+      margin-top: 12px;
+    }
+    .cta .btn-primary:hover { background: #f0fdf4; }
+
+    /* FOOTER REPLACEMENT */
+    .footer-replacement {
+      background: #0f172a;
+      color: #fff;
+      padding: 50px 0 40px;
+    }
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+    }
+    .footer-bottom h3 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #4ade80;
+    }
+    .footer-bottom p {
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .footer-bottom .copy {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      width: 100%;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+    .footer-bottom .disclaimer {
+      font-size: 13px;
+      opacity: 0.6;
+      max-width: 800px;
+      margin: 8px auto 0;
+      line-height: 1.6;
+    }
+    @media (max-width:768px) {
+      .cta h2 { font-size: 26px; }
+      .cta .btn-primary { font-size: 16px; padding: 12px 24px; }
+      .footer-bottom h3 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- BANNER / HERO - no gradient -->
+<div class="banner-service">
+  <h1>Our <span>QuickBooks</span> Services</h1>
+  <nav class="breadcrumb-nav">
+    <ol>
+     
+    </ol>
+  </nav>
+</div>
+
+<!-- SERVICE SECTION (cards non-clickable) -->
+<section class="py-5">
+  <div class="container">
+    <div class="service-heading">
+      <h3>QuickBooks Services At Your Disposal</h3>
+    </div>
+    <div class="row">
+
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2026/02/QuickBooks-Bookkeeper-1.webp" alt="QuickBooks Bookkeeper">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Bookkeeper</h4>
+            <p>Expert QuickBooks book keeping to simplify your finances &amp; grow your business. We provide reliable QuickBooks bookkeeper services using trusted accounting tools.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2026/02/QuickBooks-Consulting-Services-1.webp" alt="QuickBooks Consulting">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Consultant Services</h4>
+            <p>Certified QuickBooks consultants providing expert guidance to help your business streamline accounting, improve workflows, and maximize efficiency.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2026/02/QuickBooks-Proadvisor-Support-1.webp" alt="QuickBooks Proadvisor">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Proadvisor</h4>
+            <p>Expert ProAdvisor support for setup, troubleshooting, and optimization. Get your QuickBooks configured correctly from the start.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Online-Service-1.webp" alt="QuickBooks Online">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Online Help</h4>
+            <p>Powerful cloud-based accounting with expert setup and ongoing support. Access your finances anywhere, anytime with professional assistance.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Data-Migration-1.webp" alt="QuickBooks Data Migration">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Data Migration</h4>
+            <p>Secure and accurate data migration between QuickBooks versions or platforms. We ensure zero data loss and complete integrity.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Solopreneur.webp" alt="QuickBooks Solopreneur">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Solopreneur</h4>
+            <p>Tailored QuickBooks solutions for solo entrepreneurs. Simplified accounting, expense tracking, and financial management for independent professionals.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Online-Payroll.webp" alt="QuickBooks Online Payroll">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Online Payroll</h4>
+            <p>Streamlined payroll processing with automated tax calculations, direct deposit, and employee management for hassle-free payroll operations.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Integration.webp" alt="QuickBooks Integration">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Integration</h4>
+            <p>Seamless integration with 800+ business apps. Automate workflows, sync data, and eliminate manual data entry for better efficiency.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Desktop-Payroll.webp" alt="QuickBooks Desktop Payroll">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Desktop Payroll</h4>
+            <p>Powerful desktop payroll solution for accurate tax calculations, employee payments, and compliance management with expert support.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Desktop-Enterprise.webp" alt="QuickBooks Desktop Enterprise">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Desktop Enterprise</h4>
+            <p>Advanced enterprise-level accounting with payroll automation, enhanced integration, and robust features for growing businesses.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 11 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Data-Recovery.webp" alt="QuickBooks Data Recovery">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Data Recovery</h4>
+            <p>Fast and secure data recovery for damaged or lost QuickBooks files. Our experts restore your critical financial data with precision.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 12 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Data-Conversion.webp" alt="QuickBooks Data Conversion">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Data Conversion</h4>
+            <p>Expert data conversion between QuickBooks versions and formats. Smooth transitions with complete data integrity and accuracy.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 13 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Cloud-Hosting.webp" alt="QuickBooks Cloud Hosting">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Cloud Hosting</h4>
+            <p>Secure cloud hosting for QuickBooks with real-time collaboration. Access your accounting data anywhere, anytime, with enhanced security.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 14 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Canada.webp" alt="QuickBooks Canada">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Canada</h4>
+            <p>Specialized QuickBooks support for Canadian users including CRA-compliant tax filings, payroll, and expert guidance for Canadian accounting.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 15 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Desktop-Help.webp" alt="QuickBooks Desktop Help">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Desktop Help</h4>
+            <p>Complete desktop accounting solution with expert support for installation, setup, troubleshooting, and daily accounting tasks.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 16 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Point-of-Sale.webp" alt="QuickBooks Point of Sale">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Point of Sale</h4>
+            <p>Integrated POS solution for retail businesses. Manage sales, track inventory, and sync transactions seamlessly with QuickBooks.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 17 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Payroll-Help.webp" alt="QuickBooks Payroll Help">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Payroll Help</h4>
+            <p>Convenient payroll management with automated time tracking, tax calculations, and comprehensive support for all your payroll needs.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 18 -->
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://www.quickbooksupportnet.com/wp-content/uploads/2025/11/QuickBooks-Premier-Help.webp" alt="QuickBooks Premier Help">
+          </div>
+          <div class="service-txt">
+            <h4>QuickBooks Premier Help</h4>
+            <p>Powerful financial management software with expert support for accounting, reporting, and business growth strategies.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION + FOOTER (combined as requested) -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="cta">
+      <h2>Ready to Move to Cloud Accounting?</h2>
+      <p>Talk to our migration expert today</p>
+      <br>
+      <a href="tel:+18004421838" class="btn-primary">📞 +1-800-442-1838</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER REPLACEMENT -->
+<div class="footer-replacement">
+  <div class="container">
+    <!-- Footer bottom -->
+    <div class="footer-bottom">
+      <h3>Quickbooks Assistance</h3>
+      <p>Professional support and bookkeeping assistance services.</p>
+      <div class="copy">© 2026 Quickbooks Assistance. All Rights Reserved.</div>
+      <div class="disclaimer">Disclaimer: The product images and names displayed above are for reference purposes only. Quickbooks Assistance is an independent service provider and is not affiliated with or endorsed by any third-party brand. All trademarks belong to their respective owners.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
