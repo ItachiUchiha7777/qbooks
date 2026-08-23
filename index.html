@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quickbooks Assistance | Support & Migration</title>
+  <style>
+    /* RESET */
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+    body{background:#f6f7fb;color:#1f2937;}
+    .container{max-width:1200px;margin:auto;padding:0 20px;}
+
+    /* TOP OFFER BAR */
+    .top-offer{ background:#58e56d; padding:14px 20px; }
+    .offer-container{ max-width:1200px; margin:auto; display:flex; justify-content:center; align-items:center; gap:40px; flex-wrap:wrap; }
+    .top-offer p{ margin:0; color:#000; font-size:16px; font-weight:500; }
+    .top-offer strong{ font-size:20px; font-weight:800; }
+    .offer-btn{ background:#000; color:#fff; text-decoration:none; padding:12px 28px; border-radius:8px; font-weight:700; transition:.3s; }
+    .offer-btn:hover{ background:#222; }
+    @media(max-width:768px){
+      .offer-container{ flex-direction:column; gap:15px; text-align:center; }
+      .top-offer p{ font-size:15px; line-height:1.6; }
+      .offer-btn{ width:180px; text-align:center; }
+    }
+
+    /* HEADER */
+    header{ position:sticky; top:0; z-index:999; background:#fff; border-bottom:1px solid #eee; }
+    .nav{ display:flex; justify-content:space-between; align-items:center; padding:8px 0; }
+    .logo-img{ height:45px; width:auto; max-width:120px; object-fit:contain; display:block; }
+    .logo{ font-size:24px; font-weight:800; }
+    .logo span{ color:#4ade80; }
+    .cta-btn{ background:#4ade80; color:#fff; padding:8px 16px; border-radius:8px; font-weight:700; text-decoration:none; white-space:nowrap; }
+    .navbar{ flex:1; display:flex; justify-content:center; }
+    .nav-links{ display:flex; align-items:center; list-style:none; gap:30px; margin:0; padding:0; }
+    .nav-links li a{ text-decoration:none; color:#333; font-weight:600; font-size:16px; transition:.3s; }
+    .nav-links li a:hover{ color:#4ade80; }
+    @media(max-width:768px){
+      .nav{ flex-direction:column; gap:12px; padding:10px 0; }
+      .logo-img{ height:40px; }
+      .navbar{ width:100%; }
+      .nav-links{ flex-wrap:wrap; justify-content:center; gap:15px; }
+      .nav-links li a{ font-size:15px; }
+      .cta-btn{ width:100%; text-align:center; }
+    }
+
+    /* HERO */
+    .hero{ padding:80px 0; background:linear-gradient(135deg,#dcfce7,#22c55e); }
+    .hero-grid{ display:grid; grid-template-columns:1.2fr .8fr; gap:35px; align-items:start; }
+    .hero h1{ font-size:52px; line-height:1.1; margin-bottom:18px; color:#111827; }
+    .hero p{ color:#4b5563; font-size:17px; line-height:1.8; }
+    .hero-actions{ display:flex; gap:14px; margin-top:25px; flex-wrap:wrap; }
+    .btn-primary{ background:#4ade80; color:#fff; padding:14px 22px; border-radius:12px; text-decoration:none; font-weight:700; transition:.3s; display:inline-block; }
+    .btn-primary:hover{ background:#22c55e; }
+    .btn-outline{ border:1px solid #4ade80; padding:14px 22px; border-radius:12px; text-decoration:none; color:#4ade80; font-weight:600; background:#fff; transition:.3s; display:inline-block; }
+    .btn-outline:hover{ background:#4ade80; color:#fff; }
+    .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:25px; }
+    .card{ background:#fff; padding:22px; border-radius:16px; box-shadow:0 8px 20px rgba(22,163,74,.08); border:1px solid #22c55e; transition:.3s; }
+    .card:hover{ transform:translateY(-6px); }
+    .card h3{ font-size:18px; margin-bottom:10px; color:#4ade80; }
+    .card p{ font-size:14px; color:#666; line-height:1.7; }
+
+    /* FORM PANEL (replaces video) */
+    .form-panel{
+      background:#fff;
+      border-radius:18px;
+      padding:22px 25px 30px;
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
+      position:sticky;
+      top:90px;
+    }
+    .form-panel h3{
+      margin-bottom:18px;
+      font-size:22px;
+      color:#111827;
+      text-align:center;
+    }
+    .form-panel label{
+      font-weight:600;
+      font-size:14px;
+      color:#1f2937;
+      display:block;
+      margin:12px 0 4px;
+    }
+    .form-panel input,
+    .form-panel textarea{
+      width:100%;
+      padding:12px 15px;
+      border:1px solid #d1d5db;
+      border-radius:10px;
+      font-size:15px;
+      transition:0.2s;
+      background:#f9fafb;
+    }
+    .form-panel input:focus,
+    .form-panel textarea:focus{
+      border-color:#4ade80;
+      outline:2px solid #4ade8040;
+      background:#fff;
+    }
+    .form-panel textarea{
+      resize:vertical;
+      min-height:90px;
+    }
+    .form-panel .submit-btn{
+      background:#4ade80;
+      color:#fff;
+      border:none;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:16px;
+      width:100%;
+      margin-top:18px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .form-panel .submit-btn:hover{
+      background:#22c55e;
+    }
+    .form-error{
+      color:#b91c1c;
+      font-size:13px;
+      margin:4px 0 0;
+      display:none;
+    }
+    .form-success{
+      background:#dcfce7;
+      color:#166534;
+      padding:14px;
+      border-radius:12px;
+      text-align:center;
+      font-weight:600;
+      display:none;
+      margin-top:12px;
+    }
+    @media(max-width:991px){
+      .hero-grid{ grid-template-columns:1fr; }
+      .hero h1{ font-size:38px; }
+      .grid-3{ grid-template-columns:1fr; }
+      .hero-actions{ flex-direction:column; }
+      .btn-primary,.btn-outline{ width:100%; text-align:center; }
+      .form-panel{ position:relative; top:auto; }
+    }
+
+    /* SERVICES */
+    .services-section{ padding:90px 0; background:#dcfce7; }
+    .section-heading{ text-align:center; margin-bottom:60px; }
+    .section-heading span{ color:#4ade80; font-size:15px; font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+    .section-heading h2{ font-size:42px; margin:15px 0; color:#111827; line-height:1.2; }
+    .section-heading p{ max-width:750px; margin:auto; color:#666; font-size:16px; line-height:1.7; }
+    .services-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+    .service-card{ background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 5px 18px rgba(0,0,0,.08); transition:.35s; border-top:5px solid #4ade80; }
+    .service-card:hover{ transform:translateY(-10px); box-shadow:0 10px 30px rgba(22,163,74,.18); }
+    .service-card img{ width:100%; height:auto; object-fit:contain; display:block; background:#fff; }
+    .service-card:hover img{ transform:scale(1.05); }
+    .service-card h3{ font-size:22px; color:#4ade80; padding:22px 22px 10px; line-height:1.3; font-weight:700; }
+    .service-card p{ padding:0 22px 25px; color:#555; font-size:15px; line-height:1.8; }
+    .service-card::before{ content:""; position:absolute; inset:0; background:rgba(22,163,74,.04); opacity:0; transition:.3s; pointer-events:none; }
+    .service-card:hover::before{ opacity:1; }
+    .service-card{ position:relative; }
+    @media(max-width:1100px){ .services-grid{ grid-template-columns:repeat(3,1fr); } }
+    @media(max-width:991px){ .services-section{ padding:70px 0; } .section-heading{ margin-bottom:40px; } .section-heading h2{ font-size:34px; } .services-grid{ grid-template-columns:repeat(2,1fr); gap:22px; } }
+    @media(max-width:576px){ .services-grid{ grid-template-columns:1fr; } .section-heading h2{ font-size:28px; } .service-card h3{ font-size:20px; } }
+
+    /* BADGE */
+    .badge-section{ padding:80px 0; background:#ffffff; }
+    .badge-heading{ text-align:center; margin-bottom:50px; }
+    .badge-heading span{ color:#4ade80; font-size:14px; font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+    .badge-heading h2{ font-size:42px; color:#111827; margin:15px 0; }
+    .badge-heading p{ max-width:700px; margin:auto; color:#666; line-height:1.7; }
+    .badge-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:25px; align-items:center; }
+    .badge-box{ background:#dcfce7; border:2px solid #22c55e; border-radius:18px; padding:25px; text-align:center; transition:.3s; }
+    .badge-box:hover{ transform:translateY(-8px); box-shadow:0 10px 25px rgba(22,163,74,.12); }
+    .badge-box img{ width:100%; max-width:180px; height:120px; object-fit:contain; margin:auto; }
+    @media(max-width:991px){ .badge-grid{ grid-template-columns:repeat(2,1fr); } .badge-heading h2{ font-size:32px; } }
+    @media(max-width:576px){ .badge-grid{ grid-template-columns:1fr; } .badge-heading h2{ font-size:28px; } }
+
+    /* QB ERRORS */
+    .qb-errors-section{ padding:80px 0; background:#dcfce7; }
+    .qb-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+    .qb-item{ background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.08); }
+    .qb-question{ width:100%; text-align:left; padding:18px; background:#4ade80; color:#fff; border:none; cursor:pointer; font-weight:600; }
+    .qb-answer{ max-height:0; overflow:hidden; transition:0.4s; padding:0 18px; }
+    .qb-item.active .qb-answer{ max-height:200px; }
+    .qb-answer p{ padding:15px 0; color:#555; }
+    @media(max-width:768px){ .qb-grid{ grid-template-columns:1fr; } }
+
+    /* MIGRATION */
+    .migration{ background:#fff; padding:80px 0; }
+    .steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:15px; margin-top:30px; }
+    .step{ background:#f9fafb; padding:20px; border-radius:15px; border-left:4px solid #4ade80; }
+    @media(max-width:900px){ .steps{ grid-template-columns:1fr; } }
+
+    /* BANNER */
+    .banner{ width:100%; overflow:hidden; margin:0; padding:0; }
+    .banner img{ width:100%; height:auto; display:block; }
+
+    /* SECTION */
+    .section{ padding:70px 0; }
+    .title{ text-align:center; margin-bottom:40px; }
+    .title h2{ font-size:34px; }
+    .title p{ color:#666; margin-top:10px; }
+
+    /* CTA */
+    .cta{ background:#4ade80; color:#fff; padding:60px 20px; text-align:center; border-radius:20px; }
+    .cta h2{ font-size:36px; }
+    .cta .btn-primary{ background:#fff; color:#18C10B; }
+
+    /* FOOTER */
+    footer{ background:#0f172a; color:#fff; padding:70px 0; text-align:center; }
+    footer h3{ font-size:34px; margin-bottom:12px; }
+    .footer-links{ display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin:30px 0; }
+    .footer-links a{ background:#fff; color:#4ade80; padding:10px 20px; border-radius:30px; font-weight:700; text-decoration:none; }
+    .copy{ margin-top:20px; padding-top:20px; border-top:1px solid rgba(255,255,255,.1); }
+    .disclaimer{ margin-top:20px; opacity:.8; font-size:13px; }
+
+    /* misc */
+    .mobile-call{ display:none; }
+    @media(max-width:900px){ .hero-grid{ grid-template-columns:1fr; } .grid-3{ grid-template-columns:1fr; } .side-panel{ position:relative; top:0; } .hero h1{ font-size:32px; } }
+  </style>
+</head>
+<body>
+
+<!-- TOP OFFER -->
+<div class="top-offer">
+  <div class="offer-container">
+    <p>SUMMER SAVINGS <strong>90% OFF</strong> Quickbooks for 3 months* Ends 8/27</p>
+    <a href="tel:+1-800-442-1838" class="offer-btn">Buy now</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/logo22.png" alt="Quickbooks Assistance Logo" class="logo-img">
+      </a>
+    </div>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+    <a href="tel:+18004421838" class="cta-btn">📞 +1-800-442-1838</a>
+  </div>
+</header>
+
+<!-- HERO with FORM -->
+<section class="hero" id="about">
+  <div class="container hero-grid">
+    <div>
+      <h1>Quickbooks Assistance</h1>
+      <h2>Fix Error, Problem Solving & Data Migration</h2>
+      <p>Upgrade from Desktop to Cloud Accounting with secure data migration, expert support, and zero data loss guarantee.</p>
+      <div class="hero-actions">
+        <a href="tel:+18004421838" class="btn-primary">📞 +1-800-442-1838</a>
+        <a href="#services" class="btn-outline">View Services</a>
+      </div>
+      <br>
+      <div class="grid-3">
+        <div class="card"><h3>100% Safe Migration</h3><p>No data loss guaranteed during transfer.</p></div>
+        <div class="card"><h3>24/7 Support</h3><p>Expert assistance anytime you need.</p></div>
+        <div class="card"><h3>Fast Setup</h3><p>Complete migration in hours not days.</p></div>
+      </div>
+    </div>
+
+    <!-- FORM PANEL (replaces video) -->
+    <div class="form-panel" id="contactFormPanel">
+      <h3>Get Expert Help</h3>
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="New Contact from Quickbooks Assistance">
+        <input type="hidden" name="from_name" value="Quickbooks Assistance Website">
+        <label for="fullName">Full Name *</label>
+        <input type="text" id="fullName" name="name" placeholder="John Doe" required>
+        <div class="form-error" id="nameError">Please enter your name.</div>
+
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" name="phone" placeholder="+1 800 442 1838" required>
+        <div class="form-error" id="phoneError">Valid phone number required.</div>
+
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <div class="form-error" id="emailError">Please enter a valid email.</div>
+
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" placeholder="Tell us how we can help..." required></textarea>
+        <div class="form-error" id="messageError">Please enter your message.</div>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+        <div class="form-success" id="formSuccess">✓ Your message was sent successfully!</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-heading">
+      <span>OUR SERVICES</span>
+      <h2>Professional Quickbooks Assistance Services</h2>
+      <p>We provide complete Quickbooks migration, setup, troubleshooting and bookkeeping solutions for businesses.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><img src="images/service-01.jpg" alt="QuickBooks Desktop Migration"><h3>QuickBooks Desktop Migration</h3><p>Securely migrate your QuickBooks Desktop data to the latest version without data loss.</p></div>
+      <div class="service-card"><img src="images/proadviser-03.avif" alt="QuickBooks Online Setup"><h3>QuickBooks Online Setup</h3><p>Complete QuickBooks Online configuration for smooth accounting management.</p></div>
+      <div class="service-card"><img src="images/service-02.jpg" alt="Data Repair & Recovery"><h3>Data Repair & Recovery</h3><p>Recover damaged company files and repair QuickBooks data errors professionally.</p></div>
+      <div class="service-card"><img src="images/proadviser-04.avif" alt="Bank Sync Issues Fix"><h3>Bank Sync Issues Fix</h3><p>Resolve banking connection issues and fix transaction sync problems quickly.</p></div>
+      <div class="service-card"><img src="images/proadviser-05.jpg" alt="Billing Support"><h3>Billing Support</h3><p>Get help with subscription billing, renewal issues and payment errors.</p></div>
+      <div class="service-card"><img src="images/proadviser-06.png" alt="Subscription Management"><h3>Subscription Management</h3><p>Manage QuickBooks subscriptions, upgrades and account settings efficiently.</p></div>
+      <div class="service-card"><img src="images/service-03.jpg" alt="Accounting Setup Help"><h3>Accounting Setup Help</h3><p>Professional assistance for proper chart of accounts and accounting workflows.</p></div>
+      <div class="service-card"><img src="images/service-04.jpg" alt="Tax Report Assistance"><h3>Tax Report Assistance</h3><p>Generate accurate tax reports and organize financial documents easily.</p></div>
+      <div class="service-card"><img src="images/service-05.jpg" alt="Business Reporting Tools"><h3>Business Reporting Tools</h3><p>Create advanced reports and gain better insights into business performance.</p></div>
+      <div class="service-card"><img src="images/service-06.png" alt="Inventory Setup"><h3>Inventory Setup</h3><p>Configure inventory tracking systems for better stock management accuracy.</p></div>
+      <div class="service-card"><img src="images/proadviser-04.avif" alt="Payroll Configuration"><h3>Payroll Configuration</h3><p>Set up payroll systems correctly for employee salary and tax management.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BADGE -->
+<section class="badge-section">
+  <div class="container">
+    <div class="badge-heading">
+      <span>TRUSTED & CERTIFIED</span>
+      <h2>Why Customers Choose Us</h2>
+      <p>Trusted by businesses for secure migration, accounting support and reliable customer service.</p>
+    </div>
+    <div class="badge-grid">
+      <div class="badge-box"><img src="images/proadviser-001.png" alt="Certified Experts"></div>
+      <div class="badge-box"><img src="images/proadviser-002.jpg" alt="Secure Migration"></div>
+      <div class="badge-box"><img src="images/proadviser-003.png" alt="24x7 Support"></div>
+      <div class="badge-box"><img src="images/proadviser-004.png" alt="Trusted Service"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MIGRATION -->
+<section class="migration" id="migration">
+  <div class="container">
+    <div class="title">
+      <h2>QuickBooks Desktop to Online Migration</h2>
+      <p>Simple 4-step secure process</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Step 1</h3><p>We analyze your Desktop file and structure.</p></div>
+      <div class="step"><h3>Step 2</h3><p>Fix errors and prepare data for migration.</p></div>
+      <div class="step"><h3>Step 3</h3><p>Secure transfer to QuickBooks Online cloud.</p></div>
+      <div class="step"><h3>Step 4</h3><p>Final verification and accuracy check.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER -->
+<section class="banner">
+  <img src="images/banner.webp" alt="Banner Image">
+</section>
+
+<!-- QB ERRORS -->
+<section class="qb-errors-section">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Most Common QuickBooks Errors</h2>
+      <p>QuickBooks errors may occur during installation, update, payroll or company file access. Below are the most common ones.</p>
+    </div>
+    <div class="qb-grid">
+      <div class="qb-item"><button class="qb-question">Error 1303 (Installation Error)</button><div class="qb-answer"><p>Permission issue during installation when installer cannot access directory.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error 1935</button><div class="qb-answer"><p>.NET Framework missing or antivirus blocking installation.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error 1603 / 1642</button><div class="qb-answer"><p>Damaged Microsoft .NET Framework or Windows Installer issue.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error 6144, 82</button><div class="qb-answer"><p>Network issue, malware or incorrect installation.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error 1321</button><div class="qb-answer"><p>Insufficient privileges to modify system files during install.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error 1920</button><div class="qb-answer"><p>Database server service fails to start.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error 80070057</button><div class="qb-answer"><p>Permission or file access issue while opening company file.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error 392</button><div class="qb-answer"><p>Corrupt system files or incomplete installation.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error 3371 Status Code 11118</button><div class="qb-answer"><p>Missing or damaged license file or Windows issues.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error H505</button><div class="qb-answer"><p>Multi-user hosting or network configuration issue.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error 1618</button><div class="qb-answer"><p>Windows installer conflict during installation or update.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error 80029c4a</button><div class="qb-answer"><p>DLL or antivirus blocking QuickBooks components.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Payroll Error 12002</button><div class="qb-answer"><p>Internet or SSL issue during payroll update.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Payroll Error 30159</button><div class="qb-answer"><p>Network timeout or incorrect browser settings.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Payroll Error 15311</button><div class="qb-answer"><p>Corrupt installation or system registry issue.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Payroll Error 12157</button><div class="qb-answer"><p>Firewall or internet blocking connection.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Payroll Error PS034</button><div class="qb-answer"><p>Incorrect service key or damaged payroll data.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Payroll Error 15223</button><div class="qb-answer"><p>Update failure due to SSL or internet issues.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Update Error 1328</button><div class="qb-answer"><p>File corruption during update process.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Update Error 12152</button><div class="qb-answer"><p>Internet connection or registry issue.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Update Error 12007</button><div class="qb-answer"><p>Firewall or browser blocking update.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Update Error 15106</button><div class="qb-answer"><p>Update service blocked or corrupted files.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error 6000</button><div class="qb-answer"><p>Company file access issue or corrupted file.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error 6000, 77</button><div class="qb-answer"><p>Wrong file location or permission issue.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error 6000, 304</button><div class="qb-answer"><p>Low disk space or quota issue.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error 6000, 832</button><div class="qb-answer"><p>Damaged .ND file or hosting issue.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error C=51</button><div class="qb-answer"><p>Damaged report or missing TxList file.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error C=43</button><div class="qb-answer"><p>Data damage in company file.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error C=387</button><div class="qb-answer"><p>File read/write or installation issue.</p></div></div>
+      <div class="qb-item"><button class="qb-question">Error C=272</button><div class="qb-answer"><p>Company file or compatibility issue.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section">
+  <div class="container">
+    <div class="title">
+      <h2>Why Choose Us</h2>
+      <p>Trusted migration experts for businesses worldwide</p>
+    </div>
+    <div class="grid-3">
+      <div class="card"><h3>Certified Experts</h3><p>ProAdvisors with real migration experience.</p></div>
+      <div class="card"><h3>Zero Data Loss</h3><p>We ensure complete safety of financial records.</p></div>
+      <div class="card"><h3>Fast Turnaround</h3><p>Migration completed within hours.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="cta">
+      <h2>Ready to Move to Cloud Accounting?</h2>
+      <p>Talk to our migration expert today</p>
+      <br>
+      <a href="tel:+18004421838" class="btn-primary" style="background:#fff;color:#18C10B;">📞 +1-800-442-1838</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (legal links removed) -->
+<footer>
+  <div class="container">
+    <h3>Quickbooks Assistance</h3>
+    <p>Professional support and bookkeeping assistance services.</p>
+    <div class="footer-links">
+      <!-- All legal links removed per request -->
+    </div>
+    <div class="copy">© 2026 Quickbooks Assistance. All Rights Reserved.</div>
+    <p class="disclaimer">Disclaimer: The product images and names displayed above are for reference purposes only. Quickbooks Assistance is an independent service provider and is not affiliated with or endorsed by any third-party brand. All trademarks belong to their respective owners.</p>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  // Accordion for errors
+  document.querySelectorAll(".qb-question").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      btn.parentElement.classList.toggle("active");
+    });
+  });
+
+  // FORM VALIDATION + Web3Forms
+  const form = document.getElementById('contactForm');
+  const nameInput = document.getElementById('fullName');
+  const phoneInput = document.getElementById('phone');
+  const emailInput = document.getElementById('email');
+  const messageInput = document.getElementById('message');
+  const nameErr = document.getElementById('nameError');
+  const phoneErr = document.getElementById('phoneError');
+  const emailErr = document.getElementById('emailError');
+  const messageErr = document.getElementById('messageError');
+  const successDiv = document.getElementById('formSuccess');
+
+  function validateField(input, errorEl, condition, msg) {
+    if (!condition) {
+      errorEl.style.display = 'block';
+      errorEl.textContent = msg;
+      return false;
+    } else {
+      errorEl.style.display = 'none';
+      return true;
+    }
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    let valid = true;
+
+    // Name
+    const nameVal = nameInput.value.trim();
+    if (!validateField(nameInput, nameErr, nameVal.length > 0, 'Please enter your name.')) valid = false;
+
+    // Phone (basic: at least 7 digits)
+    const phoneVal = phoneInput.value.trim();
+    const phoneOk = phoneVal.replace(/[\s\-\(\)\+]/g, '').length >= 7;
+    if (!validateField(phoneInput, phoneErr, phoneOk, 'Valid phone number required (min 7 digits).')) valid = false;
+
+    // Email
+    const emailVal = emailInput.value.trim();
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
+    if (!validateField(emailInput, emailErr, emailOk, 'Please enter a valid email address.')) valid = false;
+
+    // Message
+    const msgVal = messageInput.value.trim();
+    if (!validateField(messageInput, messageErr, msgVal.length > 0, 'Please enter your message.')) valid = false;
+
+    if (!valid) return;
+
+    // Submit to Web3Forms
+    const formData = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        successDiv.style.display = 'block';
+        form.reset();
+        setTimeout(() => { successDiv.style.display = 'none'; }, 6000);
+      } else {
+        alert('There was an issue sending your message. Please try again.');
+      }
+    }).catch(() => {
+      alert('Network error. Please check your connection.');
+    });
+  });
+
+  // LiveChat (unchanged)
+  window.__lc = window.__lc || {};
+  window.__lc.license = 19882328;
+  window.__lc.integration_name = "manual_channels";
+  window.__lc.product_name = "livechat";
+  (function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice));
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/19882328/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+</body>
+</html>
