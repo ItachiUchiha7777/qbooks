@@ -272,9 +272,9 @@
     <nav class="navbar">
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="#about">About Us</a></li>
+        <li><a href="./about.html">About Us</a></li>
         <li><a href="./service.html">Services</a></li>
-        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="./contact.html">Contact Us</a></li>
       </ul>
     </nav>
     <a href="tel:+18004421838" class="cta-btn">📞 +1-800-442-1838</a>
@@ -300,24 +300,25 @@
       </div>
     </div>
 
-    <!-- CONTACT FORM -->
+    <!-- CONTACT FORM (FIXED) -->
     <div class="form-panel" id="contactFormPanel">
       <h3>Request Assistance</h3>
-      <form id="contactForm">
+      <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+        <input type="hidden" name="access_key" value="c9fd6b62-5866-4b03-9db1-cb20e3c150e2">
         <label for="name">Name *</label>
-        <input type="text" id="name" placeholder="Your full name" required>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
         <div class="form-error" id="nameError">Please enter your name</div>
 
         <label for="phone">Phone Number *</label>
-        <input type="tel" id="phone" placeholder="(123) 456-7890" required>
+        <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
         <div class="form-error" id="phoneError">Valid phone number required</div>
 
         <label for="email">Email *</label>
-        <input type="email" id="email" placeholder="you@example.com" required>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
         <div class="form-error" id="emailError">Please enter a valid email</div>
 
         <label for="message">Message</label>
-        <textarea id="message" placeholder="Tell us how we can help..."></textarea>
+        <textarea id="message" name="message" placeholder="Tell us how we can help..."></textarea>
 
         <button type="submit" class="btn-submit">Send Message</button>
         <div class="form-success" id="formSuccess">✔ Your message was sent. We'll contact you shortly.</div>
@@ -534,36 +535,62 @@
     e.preventDefault();
     let valid = true;
 
-    if (!nameInput.value.trim()) { nameErr.style.display = 'block'; valid = false; } else { nameErr.style.display = 'none'; }
-    if (!phoneInput.value.trim() || phoneInput.value.trim().length < 7) { phoneErr.style.display = 'block'; valid = false; } else { phoneErr.style.display = 'none'; }
+    // Reset errors
+    nameErr.style.display = 'none';
+    phoneErr.style.display = 'none';
+    emailErr.style.display = 'none';
+    successDiv.style.display = 'none';
+
+    // Validate name
+    if (!nameInput.value.trim()) {
+      nameErr.style.display = 'block';
+      valid = false;
+    }
+
+    // Validate phone (basic: at least 7 digits)
+    const phoneVal = phoneInput.value.trim().replace(/\D/g, '');
+    if (phoneVal.length < 7) {
+      phoneErr.style.display = 'block';
+      valid = false;
+    }
+
+    // Validate email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) { emailErr.style.display = 'block'; valid = false; } else { emailErr.style.display = 'none'; }
+    if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+      emailErr.style.display = 'block';
+      valid = false;
+    }
 
     if (!valid) return;
 
+    // Build form data
     const formData = new FormData();
-    formData.append('access_key', 'YOUR_ACCESS_KEY');
-    formData.append('name', nameInput.value);
-    formData.append('phone', phoneInput.value);
-    formData.append('email', emailInput.value);
-    formData.append('message', messageInput.value);
+    formData.append('access_key', 'c9fd6b62-5866-4b03-9db1-cb20e3c150e2');
+    formData.append('name', nameInput.value.trim());
+    formData.append('phone', phoneInput.value.trim());
+    formData.append('email', emailInput.value.trim());
+    formData.append('message', messageInput.value.trim());
     formData.append('subject', 'New assistance request from website');
 
     fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       body: formData
     })
-    .then(res => res.json())
+    .then(response => response.json())
     .then(data => {
       if (data.success) {
         successDiv.style.display = 'block';
         form.reset();
-        setTimeout(() => { successDiv.style.display = 'none'; }, 5000);
+        setTimeout(() => {
+          successDiv.style.display = 'none';
+        }, 6000);
       } else {
         alert('Something went wrong. Please try again later.');
       }
     })
-    .catch(() => alert('Network error. Please check your connection.'));
+    .catch(() => {
+      alert('Network error. Please check your connection.');
+    });
   });
 </script>
 <!-- LiveChat -->

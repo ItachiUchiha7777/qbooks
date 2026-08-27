@@ -4,44 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QuickBooks Assistance – Services</title>
+  <!-- Font Awesome (optional but used for consistency) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* RESET & BASE */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', Arial, sans-serif; }
-    body { background: #f6f7fb; color: #1f2937; line-height: 1.5; }
-
+    /* ===== RESET & BASE (matching past site) ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: #f6f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* BANNER SERVICE - no gradient */
+    /* ===== BANNER SERVICE – solid green bg (like top bar & header bottom) ===== */
     .banner-service {
-      background: #dcfce7;
+      background: #4ade80;  /* same as top_text and header_bottom */
       padding: 60px 0;
       text-align: center;
-      /* border-bottom: 3px solid #4ade80; */
+      border-bottom: 3px solid #22c55e;
     }
     .banner-service h1 {
       font-size: 48px;
-      color: #111827;
+      color: #0f172a;       /* dark navy from hero */
       margin-bottom: 8px;
-      font-weight: 700;
+      font-weight: 800;
     }
-    .banner-service h1 span { color: #4ade80; }
+    .banner-service h1 span {
+      color: #0f172a;       /* dark contrast */
+      background: #fff;
+      padding: 0 12px;
+      border-radius: 30px;
+      display: inline-block;
+    }
     .breadcrumb-nav ol {
       list-style: none;
       display: flex;
       justify-content: center;
       gap: 6px;
       font-size: 16px;
-      color: #4b5563;
-    }
-    .breadcrumb-nav ol li { display: inline; }
-    .breadcrumb-nav ol li a {
-      text-decoration: none;
-      color: #4ade80;
+      color: #0f172a;
       font-weight: 600;
     }
-    .breadcrumb-nav ol li a:hover { color: #22c55e; }
+    .breadcrumb-nav ol li a {
+      text-decoration: none;
+      color: #0f172a;
+      font-weight: 700;
+    }
+    .breadcrumb-nav ol li a:hover { color: #fff; }
 
-    /* SERVICE SECTION */
+    /* ===== SERVICE SECTION ===== */
     .py-5 { padding: 70px 0; }
     .service-heading {
       text-align: center;
@@ -50,7 +62,7 @@
     .service-heading h3 {
       font-size: 38px;
       color: #111827;
-      font-weight: 700;
+      font-weight: 800;
       position: relative;
       display: inline-block;
     }
@@ -64,7 +76,11 @@
       border-radius: 4px;
     }
 
-    .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
     .col-md-4 { width: 100%; }
 
     .service-card {
@@ -73,16 +89,20 @@
       overflow: hidden;
       box-shadow: 0 5px 18px rgba(0,0,0,.08);
       transition: .35s;
-      border-top: 5px solid #4ade80;
+      border-top: 5px solid #4ade80;   /* accent */
       display: flex;
       flex-direction: column;
       height: 100%;
       cursor: default;
     }
-    .service-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(22,163,74,.18); }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(74,222,128,0.25);
+    }
     .service-image {
       width: 100%; height: 200px; overflow: hidden;
-      background: #f0fdf4; display: flex; align-items: center; justify-content: center;
+      background: #f0fdf4;
+      display: flex; align-items: center; justify-content: center;
     }
     .service-image img {
       width: 100%; height: 100%; object-fit: contain;
@@ -91,12 +111,21 @@
     .service-card:hover .service-image img { transform: scale(1.02); }
     .service-txt { padding: 20px 22px 24px; flex: 1; }
     .service-txt h4 {
-      font-size: 20px; color: #4ade80; margin-bottom: 8px;
-      font-weight: 700; line-height: 1.3;
+      font-size: 20px;
+      color: #4ade80;       /* green accent */
+      margin-bottom: 8px;
+      font-weight: 700;
+      line-height: 1.3;
     }
-    .service-txt h4 a { color: #4ade80; text-decoration: none; cursor: default; }
+    .service-txt h4 a {
+      color: #4ade80;
+      text-decoration: none;
+      cursor: default;
+    }
     .service-txt p {
-      color: #555; font-size: 15px; line-height: 1.7;
+      color: #6b7280;       /* softer gray like past site */
+      font-size: 15px;
+      line-height: 1.7;
     }
 
     @media (max-width:1100px) { .row { grid-template-columns: repeat(3,1fr); } }
@@ -112,36 +141,53 @@
       .service-image { height: 180px; }
     }
 
-    /* SECTION & CTA */
+    /* ===== CTA SECTION (dark background like hero) ===== */
     .section { padding: 60px 0; }
     .cta {
-      background: #4ade80;
+      background: #0f172a;      /* dark navy from hero */
       color: #fff;
       padding: 50px 20px;
       text-align: center;
       border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     }
-    .cta h2 { font-size: 34px; font-weight: 700; margin-bottom: 6px; }
-    .cta p { font-size: 18px; opacity: 0.95; }
+    .cta h2 {
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .cta h2 span { color: #4ade80; }
+    .cta p {
+      font-size: 18px;
+      opacity: 0.9;
+      color: #cbd5e1;
+    }
     .cta .btn-primary {
       display: inline-block;
-      background: #fff;
-      color: #18C10B;
+      background: #4ade80;
+      color: #0f172a;
       padding: 14px 32px;
-      border-radius: 12px;
+      border-radius: 50px;
       font-weight: 700;
       font-size: 18px;
       text-decoration: none;
       transition: .3s;
       margin-top: 12px;
+      border: 2px solid #4ade80;
     }
-    .cta .btn-primary:hover { background: #f0fdf4; }
-
-    /* FOOTER REPLACEMENT */
-    .footer-replacement {
-      background: #0f172a;
+    .cta .btn-primary:hover {
+      background: #22c55e;
+      border-color: #22c55e;
       color: #fff;
+    }
+
+    /* ===== FOOTER (matching past site footer) ===== */
+    .footer-replacement {
+      background: #00163a;      /* same as past footer */
+      color: #94a3b8;
       padding: 50px 0 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
     .footer-bottom {
       display: flex;
@@ -152,11 +198,12 @@
     }
     .footer-bottom h3 {
       font-size: 32px;
-      font-weight: 700;
+      font-weight: 800;
       color: #4ade80;
+      letter-spacing: -0.5px;
     }
     .footer-bottom p {
-      opacity: 0.85;
+      color: #cbd5e1;
       max-width: 600px;
       margin: 0 auto;
     }
@@ -166,15 +213,17 @@
       border-top: 1px solid rgba(255,255,255,.1);
       width: 100%;
       font-size: 14px;
-      opacity: 0.7;
+      color: #94a3b8;
     }
     .footer-bottom .disclaimer {
       font-size: 13px;
-      opacity: 0.6;
+      opacity: 0.7;
       max-width: 800px;
       margin: 8px auto 0;
       line-height: 1.6;
+      color: #94a3b8;
     }
+
     @media (max-width:768px) {
       .cta h2 { font-size: 26px; }
       .cta .btn-primary { font-size: 16px; padding: 12px 24px; }
@@ -184,17 +233,17 @@
 </head>
 <body>
 
-<!-- BANNER / HERO - no gradient -->
+<!-- ===== BANNER / HERO – solid green (matches top bar & header bottom) ===== -->
 <div class="banner-service">
   <h1>Our <span>QuickBooks</span> Services</h1>
   <nav class="breadcrumb-nav">
     <ol>
-     
+      <!-- kept empty as per original -->
     </ol>
   </nav>
 </div>
 
-<!-- SERVICE SECTION (cards non-clickable) -->
+<!-- ===== SERVICE SECTION (cards non-clickable) ===== -->
 <section class="py-5">
   <div class="container">
     <div class="service-heading">
@@ -440,27 +489,26 @@
   </div>
 </section>
 
-<!-- CTA SECTION + FOOTER (combined as requested) -->
+<!-- ===== CTA SECTION (dark background like hero) ===== -->
 <section class="section" id="contact">
   <div class="container">
     <div class="cta">
-      <h2>Ready to Move to Cloud Accounting?</h2>
+      <h2>Ready to Move to <span>Cloud Accounting</span>?</h2>
       <p>Talk to our migration expert today</p>
       <br>
-      <a href="tel:+18004421838" class="btn-primary">📞 +1-800-442-1838</a>
+      <a href="tel:+18004421838" class="btn-primary"><i class="fas fa-phone-alt"></i> +1-800-442-1838</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER REPLACEMENT -->
+<!-- ===== FOOTER (matching past site) ===== -->
 <div class="footer-replacement">
   <div class="container">
-    <!-- Footer bottom -->
     <div class="footer-bottom">
-      <h3>Quickbooks Assistance</h3>
+      <h3>QuickBooks Assistance</h3>
       <p>Professional support and bookkeeping assistance services.</p>
-      <div class="copy">© 2026 Quickbooks Assistance. All Rights Reserved.</div>
-      <div class="disclaimer">Disclaimer: The product images and names displayed above are for reference purposes only. Quickbooks Assistance is an independent service provider and is not affiliated with or endorsed by any third-party brand. All trademarks belong to their respective owners.</div>
+      <div class="copy">© 2026 QuickBooks Assistance. All Rights Reserved.</div>
+      <div class="disclaimer">Disclaimer: The product images and names displayed above are for reference purposes only. QuickBooks Assistance is an independent service provider and is not affiliated with or endorsed by any third-party brand. All trademarks belong to their respective owners.</div>
     </div>
   </div>
 </div>
