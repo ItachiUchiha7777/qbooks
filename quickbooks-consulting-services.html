@@ -36,113 +36,60 @@
 
     .container {
       max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    /* ===== TOP BAR ===== */
-    .top_text {
-      background: #4ade80;
-      color: #000;
-      font-weight: 600;
-      padding: 12px 0;
-      font-size: 16px;
+    /* ===== TOP OFFER BAR (EXACT copy from index) ===== */
+    .top-offer { background: #58e56d; padding: 14px 20px; }
+    .offer-container {
+      max-width: 1200px; margin: 0 auto; display: flex;
+      justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap;
+    }
+    .top-offer p { margin: 0; color: #000; font-size: 16px; font-weight: 500; }
+    .top-offer strong { font-size: 20px; font-weight: 800; }
+    .offer-btn {
+      background: #000; color: #fff; text-decoration: none;
+      padding: 10px 28px; border-radius: 8px; font-weight: 700; transition: .3s;
+    }
+    .offer-btn:hover { background: #222; }
+    @media (max-width:768px) {
+      .offer-container { flex-direction: column; gap: 12px; text-align: center; }
+      .top-offer p { font-size: 15px; }
+      .offer-btn { width: 180px; text-align: center; }
     }
 
-    .top_text strong {
-      font-weight: 800;
-      font-size: 18px;
+    /* ===== HEADER (EXACT copy from index) ===== */
+    header {
+      position: sticky; top: 0; z-index: 999;
+      background: #fff; border-bottom: 1px solid #eee;
     }
-
-    /* ===== HEADER ===== */
-    #header {
-      background: #fff;
-      padding: 12px 0;
-      border-bottom: 1px solid #eef2f6;
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; gap: 10px;
     }
-
-    #logo img {
-      max-height: 50px;
-      width: auto;
+    .logo-img { height: 45px; width: auto; max-width: 120px; object-fit: contain; display: block; }
+    .cta-btn {
+      background: #4ade80; color: #fff; padding: 8px 16px;
+      border-radius: 8px; font-weight: 700; text-decoration: none; white-space: nowrap;
     }
-
-    .openbtn {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-      color: #333;
-      float: right;
-      margin-top: 6px;
-      background: none;
-      border: none;
+    .navbar { flex: 1; display: flex; justify-content: center; }
+    .nav-links {
+      display: flex; align-items: center; list-style: none; gap: 30px;
+      margin: 0; padding: 0;
     }
-
-    .closebtn {
-      display: none;
-      font-size: 36px;
-      cursor: pointer;
-      color: #333;
-      text-align: right;
-      padding: 10px 20px;
-      background: none;
-      border: none;
+    .nav-links li a {
+      text-decoration: none; color: #333; font-weight: 600; font-size: 16px; transition: .3s;
     }
+    .nav-links li a:hover { color: #4ade80; }
 
-    #main-menu {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-    }
-
-    #main-menu li a {
-      color: #1f2937;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 16px;
-      padding: 6px 0;
-      border-bottom: 2px solid transparent;
-    }
-
-    #main-menu li a:hover {
-      color: #4ade80;
-      border-bottom-color: #4ade80;
-    }
-
-    .top_cart {
-      background: none;
-      border: none;
-      color: #333;
-      font-size: 18px;
-      margin-left: 14px;
-      padding: 6px 8px;
-      transition: 0.3s;
-    }
-
-    .top_cart:hover {
-      color: #4ade80;
-    }
-
-    /* ===== HEADER BOTTOM ===== */
-    .header_bottom {
-      background: #4ade80;
-      padding: 14px 0;
-      text-align: center;
-    }
-
-    .header_bottom p {
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      font-weight: 600;
-      color: #0f172a;
-    }
-
-    .header_bottom span {
-      font-size: 17px;
+    @media (max-width:768px) {
+      .nav { flex-direction: column; gap: 10px; padding: 10px 0; }
+      .logo-img { height: 40px; }
+      .navbar { width: 100%; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+      .nav-links li a { font-size: 15px; }
+      .cta-btn { width: 100%; text-align: center; }
     }
 
     /* ===== BUTTONS ===== */
@@ -371,49 +318,13 @@
       margin-bottom: 10px;
     }
 
-    /* ===== SIMPLIFIED FOOTER ===== */
-    .footer_simple {
-      background: #0f172a;
-      padding: 30px 0;
-      color: #94a3b8;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .footer_simple_inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-
-    .footer_logo img {
-      max-height: 40px;
-      width: auto;
-    }
-
-    .footer_simple p {
-      margin: 6px 0 0;
-      font-size: 14px;
-    }
-
-    .footer_simple_links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .footer_simple_links a {
-      color: #cbd5e1;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-    }
-
-    .footer_simple_links a:hover {
-      color: #4ade80;
-    }
+    /* ===== FOOTER (EXACT copy from index) ===== */
+    footer { background: #0f172a; color: #fff; padding: 60px 0; text-align: center; }
+    footer h3 { font-size: 32px; margin-bottom: 10px; }
+    .footer-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 25px 0; }
+    .footer-links a { background: #fff; color: #4ade80; padding: 10px 20px; border-radius: 30px; font-weight: 700; text-decoration: none; }
+    .copy { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); }
+    .disclaimer { margin-top: 18px; opacity: .8; font-size: 13px; }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 991px) {
@@ -436,53 +347,6 @@
 
     @media (max-width: 768px) {
 
-      .openbtn {
-        display: block;
-      }
-
-      #main-nav {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #fff;
-        z-index: 9999;
-        overflow-y: auto;
-        padding: 20px;
-      }
-
-      #main-nav .closebtn {
-        display: block;
-      }
-
-      #main-menu {
-        flex-direction: column;
-        gap: 0;
-        margin-top: 20px;
-      }
-
-      #main-menu li {
-        padding: 14px 0;
-        border-bottom: 1px solid #f0f0f0;
-        width: 100%;
-      }
-
-      #main-menu li a {
-        font-size: 18px;
-        display: block;
-      }
-
-      .header_bottom p {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .header_bottom span {
-        font-size: 15px;
-      }
-
       /* MOBILE CARD GAP */
       .review_row {
         margin-left: 0 !important;
@@ -496,109 +360,684 @@
         padding-bottom: 16px !important;
         margin-bottom: 0 !important;
       }
-
-      .footer_simple_inner {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer_simple_links {
-        justify-content: center;
-        gap: 16px;
-      }
-
-      .top_text {
-        font-size: 14px;
-        padding: 10px;
-      }
-
-      .top_text strong {
-        font-size: 15px;
-      }
     }
 
+
+      /* =========================================================
+   FINAL RESPONSIVE FIXES - ALL DEVICES
+   ========================================================= */
+
+/* Prevent horizontal scrolling on every device */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better container behavior */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================================================
+   LARGE TABLETS / SMALL LAPTOPS
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .nav-links {
+    gap: 18px;
+  }
+
+  .nav-links li a {
+    font-size: 15px;
+  }
+
+  .cta-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .section-title h2 {
+    font-size: 34px;
+  }
+
+  .single_review {
+    padding: 25px 18px;
+  }
+}
+
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+  section {
+    padding: 45px 0;
+  }
+
+  .top-offer {
+    padding: 12px 15px;
+  }
+
+  .offer-container {
+    gap: 15px;
+  }
+
+  .top-offer p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .top-offer strong {
+    font-size: 18px;
+  }
+
+  /* Header */
+  .nav {
+    padding: 10px 0;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .nav-links li a {
+    font-size: 14px;
+  }
+
+  .cta-btn {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  /* Hero */
+  .normal_white_box {
+    padding: 40px 25px;
+  }
+
+  .normal_white_box h1 {
+    font-size: 42px !important;
+    line-height: 1.15;
+  }
+
+  .normal_white_box p {
+    max-width: 100%;
+  }
+
+  /* Section headings */
+  .section-title h2 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .section-title p {
+    font-size: 17px;
+  }
+
+  /* Cards */
+  .single_review h3 {
+    font-size: 19px;
+  }
+
+  .single_review p {
+    font-size: 15px;
+  }
+
+  /* Migration */
+  .dark_background {
+    padding: 35px 25px;
+  }
+
+  .dark_background h2 {
+    line-height: 1.2;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* General */
+  section {
+    padding: 35px 0;
+  }
+
+  .container {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* =======================================================
+     TOP OFFER
+     ======================================================= */
+
+  .top-offer {
+    padding: 12px 15px;
+  }
+
+  .offer-container {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .top-offer p {
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .top-offer strong {
+    font-size: 17px;
+  }
+
+  .offer-btn {
+    width: 160px;
+    padding: 9px 20px;
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     HEADER
+     ======================================================= */
+
+  header {
+    position: relative;
+  }
+
+  .nav {
+    width: 100%;
+    flex-direction: column;
+    padding: 12px 0;
+    gap: 12px;
+  }
+
+  .logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo-img {
+    height: 42px;
+    max-width: 150px;
+  }
+
+  .navbar {
+    width: 100%;
+    flex: none;
+  }
+
+  .nav-links {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px 16px;
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  .nav-links li a {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .cta-btn {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+
+  /* =======================================================
+     HERO
+     ======================================================= */
+
+  .normal_white_box {
+    padding: 30px 18px;
+    border-radius: 12px;
+  }
+
+  .hero-icon {
+    font-size: 42px;
+  }
+
+  /* Overrides the inline 48px heading */
+  .normal_white_box h1 {
+    font-size: 34px !important;
+    line-height: 1.15 !important;
+    margin: 10px 0 !important;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .normal_white_box > p {
+    line-height: 1.5;
+  }
+
+  .normal_white_box p[style*="font-size:22px"] {
+    font-size: 19px !important;
+  }
+
+  .large_text {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  /* Hero buttons */
+  .normal_white_box div[style*="display:flex"] {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px !important;
+  }
+
+  .normal_white_box div[style*="display:flex"] a {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .new_button,
+  .round_btn {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+
+  /* =======================================================
+     SECTION TITLES
+     ======================================================= */
+
+  .section-title {
+    margin-bottom: 28px;
+  }
+
+  .section-title h2 {
+    font-size: 27px;
+    line-height: 1.2;
+  }
+
+  .section-title p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .section-title .badge {
+    font-size: 12px;
+    padding: 4px 14px;
+  }
+
+
+  /* =======================================================
+     CARDS
+     ======================================================= */
+
+  .review_row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .review_row [class*="col-"] {
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 16px !important;
+    margin-bottom: 0 !important;
+    display: flex;
+  }
+
+  .single_review {
+    width: 100%;
+    padding: 25px 20px;
+    min-height: 0;
+  }
+
+  .single_review i {
+    font-size: 38px;
+    margin-bottom: 12px;
+  }
+
+  .single_review h3 {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  .single_review p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+
+  /* =======================================================
+     MIGRATION SECTION
+     ======================================================= */
+
+  .dark_background {
+    padding: 30px 18px;
+    border-radius: 12px;
+  }
+
+  .dark_background h2 {
+    font-size: 26px !important;
+    line-height: 1.25;
+  }
+
+  .dark_background > .text-center p {
+    font-size: 16px;
+  }
+
+  /* Four migration steps become one per row */
+  .dark_background .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .dark_background .row > [class*="col-"] {
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 12px;
+  }
+
+  .step-box {
+    padding: 18px 15px;
+  }
+
+  .step-box h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  .step-box p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+
+  /* =======================================================
+     CTA
+     ======================================================= */
+
+  #contact .dark_background h2 {
+    font-size: 27px !important;
+  }
+
+  #contact .new_button {
+    width: 100%;
+    max-width: 340px;
+    padding: 14px 20px !important;
+    font-size: 18px !important;
+    white-space: normal;
+  }
+
+
+  /* =======================================================
+     FOOTER
+     ======================================================= */
+
+  footer {
+    padding: 40px 15px;
+  }
+
+  footer h3 {
+    font-size: 26px;
+  }
+
+  footer p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .copy {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .disclaimer {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  section {
+    padding: 28px 0;
+  }
+
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Offer */
+  .top-offer p {
+    font-size: 13px;
+  }
+
+  .top-offer strong {
+    font-size: 16px;
+  }
+
+  .offer-btn {
+    width: 150px;
+    padding: 8px 15px;
+  }
+
+  /* Header */
+  .logo-img {
+    height: 38px;
+  }
+
+  .nav-links {
+    gap: 7px 12px;
+  }
+
+  .nav-links li a {
+    font-size: 13px;
+  }
+
+  .cta-btn {
+    max-width: 280px;
+    font-size: 13px;
+  }
+
+  /* Hero */
+  .normal_white_box {
+    padding: 25px 15px;
+  }
+
+  .hero-icon {
+    font-size: 38px;
+  }
+
+  .normal_white_box h1 {
+    font-size: 29px !important;
+  }
+
+  .normal_white_box p[style*="font-size:22px"] {
+    font-size: 17px !important;
+  }
+
+  .large_text {
+    font-size: 15px;
+  }
+
+  /* Buttons */
+  .normal_white_box div[style*="display:flex"] a {
+    max-width: 100%;
+  }
+
+  /* Section title */
+  .section-title h2 {
+    font-size: 24px;
+  }
+
+  .section-title p {
+    font-size: 15px;
+  }
+
+  /* Cards */
+  .single_review {
+    padding: 22px 16px;
+  }
+
+  .single_review i {
+    font-size: 36px;
+  }
+
+  .single_review h3 {
+    font-size: 18px;
+  }
+
+  .single_review p {
+    font-size: 14px;
+  }
+
+  /* Migration */
+  .dark_background {
+    padding: 25px 15px;
+  }
+
+  .dark_background h2 {
+    font-size: 23px !important;
+  }
+
+  .step-box {
+    padding: 16px 13px;
+  }
+
+  /* CTA */
+  #contact .dark_background h2 {
+    font-size: 24px !important;
+  }
+
+  #contact .new_button {
+    font-size: 16px !important;
+  }
+
+  /* Footer */
+  footer h3 {
+    font-size: 23px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .nav-links {
+    gap: 6px 9px;
+  }
+
+  .nav-links li a {
+    font-size: 12px;
+  }
+
+  .normal_white_box h1 {
+    font-size: 26px !important;
+  }
+
+  .section-title h2 {
+    font-size: 22px;
+  }
+
+  .single_review h3 {
+    font-size: 17px;
+  }
+
+  .cta-btn {
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+   ========================================================= */
+
+@media (hover: none) {
+
+  .single_review:hover {
+    transform: none;
+  }
+
+  .offer-btn:hover,
+  .new_button:hover,
+  .round_btn:hover,
+  .cta-btn:hover {
+    transform: none;
+  }
+}
   </style>
 </head>
 
 <body>
 
-  <!-- TOP BAR -->
-  <div class="top_text text-center">
-    <strong>🔥 SUMMER SAVINGS – 90% OFF</strong>
-    QuickBooks Assistance for 3 months* Ends 8/27
+  <!-- ===== TOP OFFER (EXACT copy from index) ===== -->
+  <div class="top-offer">
+    <div class="offer-container">
+      <p>SUMMER SAVINGS <strong>90% OFF</strong> Quickbooks Assistance for 3 months* Ends 8/27</p>
+      <a href="tel:+1-800-442-1838" class="offer-btn">Buy now</a>
+    </div>
   </div>
 
-  <!-- HEADER -->
-  <header id="header">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-sm-3 col-xs-8">
-          <div id="logo">
-            <a href="index.html">
-              <img src="images/logo22.png" alt="QuickBooks Assistance">
-            </a>
-          </div>
-        </div>
-
-        <div class="col-sm-8 hidden-xs">
-          <ul id="main-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="col-sm-1 hidden-xs text-right">
-          <a href="tel:+18004421838" class="top_cart">
-            <i class="fa fa-phone"></i>
-          </a>
-        </div>
-
-        <div class="col-xs-4 visible-xs text-right">
-          <button class="openbtn" onclick="openNav()">☰</button>
-        </div>
-
+  <!-- ===== HEADER (EXACT copy from index) ===== -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <a href="index.html"><img src="images/logo22.png" alt="Quickbooks Assistance Logo" class="logo-img"></a>
       </div>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="./about.html">About Us</a></li>
+          <li><a href="./service.html">Services</a></li>
+          <li><a href="./contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <a href="tel:+18004421838" class="cta-btn">📞 +1-800-442-1838</a>
     </div>
   </header>
-
-  <!-- MOBILE NAV -->
-  <div id="main-nav" style="display:none;">
-    <button class="closebtn" onclick="closeNav()">×</button>
-
-    <ul style="list-style:none; padding:0; margin-top:30px;">
-      <li style="padding:14px 0; border-bottom:1px solid #eee;">
-        <a href="index.html" style="font-size:18px; font-weight:600; color:#333; text-decoration:none;">Home</a>
-      </li>
-
-      <li style="padding:14px 0; border-bottom:1px solid #eee;">
-        <a href="#about" style="font-size:18px; font-weight:600; color:#333; text-decoration:none;">About</a>
-      </li>
-
-      <li style="padding:14px 0; border-bottom:1px solid #eee;">
-        <a href="#services" style="font-size:18px; font-weight:600; color:#333; text-decoration:none;">Services</a>
-      </li>
-
-      <li style="padding:14px 0;">
-        <a href="#contact" style="font-size:18px; font-weight:600; color:#333; text-decoration:none;">Contact</a>
-      </li>
-    </ul>
-  </div>
-
-  <!-- HEADER BOTTOM -->
-  <div class="header_bottom">
-    <div class="container">
-      <p>
-        <span>🚀 Expert QuickBooks Migration & Support</span>
-        <a class="round_btn outline_dark" href="tel:+18004421838">
-          <i class="fa fa-phone"></i> +1-800-442-1838
-        </a>
-        <a class="round_btn" href="#contact">Free Consultation</a>
-      </p>
-    </div>
-  </div>
 
   <main>
 
@@ -870,47 +1309,20 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer_simple">
+  <!-- ===== FOOTER (EXACT copy from index) ===== -->
+  <footer>
     <div class="container">
-
-      <div class="footer_simple_inner">
-
-        <div>
-          <a href="index.html" class="footer_logo">
-            <img src="images/logo22.png" alt="QuickBooks Assistance">
-          </a>
-
-          <p>© 2026 QuickBooks Assistance. All Rights Reserved.</p>
-        </div>
-
-        <div class="footer_simple_links">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#contact">Contact</a>
-          <a href="tel:+18004421838" style="color:#4ade80;">
-            📞 +1-800-442-1838
-          </a>
-        </div>
-
-      </div>
-
+      <h3>Quickbooks Assistance</h3>
+      <p>Professional support and bookkeeping assistance services.</p>
+      <div class="footer-links"></div>
+      <div class="copy">© 2026 Quickbooks Assistance. All Rights Reserved.</div>
+      <p class="disclaimer">Disclaimer: The product images and names displayed above are for reference purposes only. Quickbooks Assistance is an independent service provider and is not affiliated with or endorsed by any third-party brand. All trademarks belong to their respective owners.</p>
     </div>
   </footer>
 
   <!-- SCRIPTS -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-  <script>
-    function openNav() {
-      document.getElementById("main-nav").style.display = "block";
-    }
-
-    function closeNav() {
-      document.getElementById("main-nav").style.display = "none";
-    }
-  </script>
 
 </body>
 </html>

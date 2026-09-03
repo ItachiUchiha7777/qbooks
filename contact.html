@@ -422,56 +422,13 @@
 
     .no_padding { padding: 0; }
 
-    /* ===== SIMPLE FOOTER ===== */
-    .footer-simple {
-      background: #00163a;
-      color: #94a3b8;
-      padding: 30px 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    .footer-simple .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-    .footer-simple .footer-logo img { max-height: 40px; width: auto; }
-    .footer-simple p { margin: 6px 0 0; font-size: 14px; }
-    .footer-simple .footer-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .footer-simple .footer-links a {
-      color: #cbd5e1;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-    }
-    .footer-simple .footer-links a:hover { color: #4ade80; }
-    .footer-simple .footer-social {
-      display: flex;
-      gap: 12px;
-    }
-    .footer-simple .footer-social a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.05);
-      color: #cbd5e1;
-      text-decoration: none;
-      transition: 0.3s;
-      font-size: 16px;
-    }
-    .footer-simple .footer-social a:hover {
-      background: #4ade80;
-      color: #0f172a;
-    }
+    /* ===== FOOTER (EXACT copy from index) ===== */
+    footer { background: #0f172a; color: #fff; padding: 60px 0; text-align: center; }
+    footer h3 { font-size: 32px; margin-bottom: 10px; }
+    .footer-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 25px 0; }
+    .footer-links a { background: #fff; color: #4ade80; padding: 10px 20px; border-radius: 30px; font-weight: 700; text-decoration: none; }
+    .copy { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); }
+    .disclaimer { margin-top: 18px; opacity: .8; font-size: 13px; }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 991px) {
@@ -521,11 +478,6 @@
       .imgbg .normal_white_box { padding: 30px 20px; }
       .imgbg .normal_white_box h2 { font-size: 22px; }
       .faq-item { padding: 18px 20px; }
-      .footer-simple .footer-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-      .footer-simple .footer-links { justify-content: center; gap: 16px; }
       .w3-form-card .form-row { flex-direction: column; }
       .w3-form-card .form-row > div { flex: 1 1 100%; }
     }
@@ -550,7 +502,7 @@
       <div class="col-sm-3 col-xs-8">
         <div id="logo">
           <a href="index.html">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'%3E%3Crect width='200' height='50' fill='%2300163a' rx='4'/%3E%3Ctext x='12' y='32' font-family='Inter, sans-serif' font-size='18' font-weight='800' fill='%234ade80'%3EQuickBooks%3C/text%3E%3Ctext x='118' y='32' font-family='Inter, sans-serif' font-size='16' font-weight='600' fill='%23ffffff'%3EAssistance%3C/text%3E%3C/svg%3E" alt="QuickBooks Assistance" style="max-height:50px;width:auto;">
+            <img src="./images/logo22.png" alt="QuickBooks Assistance" style="max-height:50px;width:auto;">
           </a>
         </div>
       </div>
@@ -771,30 +723,14 @@
 
 </main>
 
-<!-- ===== SIMPLE FOOTER ===== -->
-<footer class="footer-simple">
+<!-- ===== FOOTER (EXACT copy from index) ===== -->
+<footer>
   <div class="container">
-    <div class="footer-inner">
-      <div>
-        <a href="index.html" class="footer-logo">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 40'%3E%3Crect width='180' height='40' fill='%2300163a' rx='4'/%3E%3Ctext x='10' y='26' font-family='Inter, sans-serif' font-size='15' font-weight='800' fill='%234ade80'%3EQuickBooks%3C/text%3E%3Ctext x='102' y='26' font-family='Inter, sans-serif' font-size='13' font-weight='600' fill='%23ffffff'%3EAssistance%3C/text%3E%3C/svg%3E" alt="QuickBooks Assistance">
-        </a>
-        <p>© 2025–2026 QuickBooks Assistance. All rights reserved.</p>
-      </div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="#services">Services</a>
-        <a href="contact.html">Contact</a>
-        <a href="tel:+18004421838" style="color:#4ade80;">📞 +1-800-442-1838</a>
-      </div>
-      <div class="footer-social">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-youtube"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-      </div>
-    </div>
+    <h3>Quickbooks Assistance</h3>
+    <p>Professional support and bookkeeping assistance services.</p>
+    <div class="footer-links"></div>
+    <div class="copy">© 2026 Quickbooks Assistance. All Rights Reserved.</div>
+    <p class="disclaimer">Disclaimer: The product images and names displayed above are for reference purposes only. Quickbooks Assistance is an independent service provider and is not affiliated with or endorsed by any third-party brand. All trademarks belong to their respective owners.</p>
   </div>
 </footer>
 
