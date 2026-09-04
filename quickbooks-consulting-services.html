@@ -12,35 +12,21 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-
     /* ===== RESET & BASE ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Outfit', Arial, sans-serif;
+      font-family: 'Inter', Arial, sans-serif;
       background: #f6f7fb;
       color: #1f2937;
       line-height: 1.6;
     }
+    a { transition: 0.3s; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    a {
-      transition: 0.3s;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* ===== TOP OFFER BAR (EXACT copy from index) ===== */
+    /* ===== TOP OFFER BAR (same as about.html) ===== */
     .top-offer { background: #58e56d; padding: 14px 20px; }
     .offer-container {
       max-width: 1200px; margin: 0 auto; display: flex;
@@ -59,7 +45,7 @@
       .offer-btn { width: 180px; text-align: center; }
     }
 
-    /* ===== HEADER (EXACT copy from index) ===== */
+    /* ===== HEADER (same as about.html) ===== */
     header {
       position: sticky; top: 0; z-index: 999;
       background: #fff; border-bottom: 1px solid #eee;
@@ -73,6 +59,7 @@
       background: #4ade80; color: #fff; padding: 8px 16px;
       border-radius: 8px; font-weight: 700; text-decoration: none; white-space: nowrap;
     }
+    .cta-btn:hover { background: #22c55e; color: #fff; }
     .navbar { flex: 1; display: flex; justify-content: center; }
     .nav-links {
       display: flex; align-items: center; list-style: none; gap: 30px;
@@ -92,7 +79,24 @@
       .cta-btn { width: 100%; text-align: center; }
     }
 
-    /* ===== BUTTONS ===== */
+    /* ===== HEADER BOTTOM (same as about.html) ===== */
+    .header_bottom {
+      background: #4ade80;
+      padding: 14px 0;
+      text-align: center;
+    }
+    .header_bottom p {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .header_bottom span { font-size: 17px; }
+
     .round_btn {
       display: inline-block;
       padding: 10px 28px;
@@ -104,36 +108,28 @@
       border: 2px solid #4ade80;
       font-size: 15px;
     }
-
     .round_btn:hover {
       background: #22c55e;
       border-color: #22c55e;
       color: #fff;
       text-decoration: none;
     }
-
-    .round_btn.white_bg {
-      background: #fff;
-      color: #4ade80;
-      border: 2px solid #4ade80;
-    }
-
-    .round_btn.white_bg:hover {
-      background: #4ade80;
-      color: #fff;
-    }
-
     .round_btn.outline_dark {
       background: transparent;
       color: #fff;
       border: 2px solid #fff;
     }
-
     .round_btn.outline_dark:hover {
       background: #fff;
       color: #4ade80;
     }
 
+    @media (max-width:768px) {
+      .header_bottom p { flex-direction: column; gap: 12px; }
+      .header_bottom span { font-size: 15px; }
+    }
+
+    /* ===== BUTTONS ===== */
     .new_button {
       display: inline-block;
       padding: 14px 36px;
@@ -146,7 +142,6 @@
       border: none;
       transition: 0.3s;
     }
-
     .new_button:hover {
       background: #22c55e;
       color: #fff;
@@ -154,21 +149,9 @@
     }
 
     /* ===== SECTIONS ===== */
-    section {
-      padding: 60px 0;
-    }
-
-    .section-white {
-      background: #fff;
-    }
-
-    .section-light {
-      background: #f8fafc;
-    }
-
-    .section-green {
-      background: #dcfce7;
-    }
+    section { padding: 60px 0; }
+    .section-light { background: #f8fafc; }
+    .section-green { background: #dcfce7; }
 
     .normal_white_box {
       background: #fff;
@@ -190,35 +173,19 @@
       color: #4b5563;
     }
 
-    .mini_container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+    .mini_container { max-width: 800px; margin: 0 auto; }
 
-    .mt50 {
-      margin-top: 50px;
-    }
-
-    .mb30 {
-      margin-bottom: 30px;
-    }
-
-    /* =====================================
-       CARDS - PERFECT EQUAL GAP FIX
-    ===================================== */
-
+    /* ===== CARDS ===== */
     .review_row {
       margin-left: -10px !important;
       margin-right: -10px !important;
     }
-
     .review_row [class*="col-"] {
       padding-left: 10px !important;
       padding-right: 10px !important;
       padding-bottom: 20px !important;
       display: flex;
     }
-
     .single_review {
       background: #fff;
       padding: 30px 22px;
@@ -231,27 +198,23 @@
       border: 1px solid #f0fdf4;
       margin: 0 !important;
     }
-
     .single_review:hover {
       transform: translateY(-6px);
       box-shadow: 0 12px 32px rgba(74, 222, 128, 0.15);
       border-color: #4ade80;
     }
-
     .single_review i {
       font-size: 42px;
       color: #4ade80;
       margin-bottom: 16px;
       display: block;
     }
-
     .single_review h3 {
       font-size: 20px;
       font-weight: 700;
       margin-bottom: 10px;
       color: #111827;
     }
-
     .single_review p {
       color: #6b7280;
       margin: 0;
@@ -265,13 +228,11 @@
       border-left: 4px solid #4ade80;
       height: 100%;
     }
-
     .step-box h4 {
       color: #4ade80;
       font-weight: 700;
       font-size: 18px;
     }
-
     .step-box p {
       color: #cbd5e1;
       margin: 0;
@@ -283,21 +244,18 @@
       text-align: center;
       margin-bottom: 40px;
     }
-
     .section-title h2 {
       font-size: 38px;
       font-weight: 800;
       color: #111827;
       margin-bottom: 10px;
     }
-
     .section-title p {
       font-size: 18px;
       color: #6b7280;
       max-width: 700px;
       margin: 0 auto;
     }
-
     .section-title .badge {
       display: inline-block;
       background: #4ade80;
@@ -312,13 +270,9 @@
     }
 
     /* ===== HERO ===== */
-    .hero-icon {
-      font-size: 52px;
-      color: #4ade80;
-      margin-bottom: 10px;
-    }
+    .hero-icon { font-size: 52px; color: #4ade80; margin-bottom: 10px; }
 
-    /* ===== FOOTER (EXACT copy from index) ===== */
+    /* ===== FOOTER ===== */
     footer { background: #0f172a; color: #fff; padding: 60px 0; text-align: center; }
     footer h3 { font-size: 32px; margin-bottom: 10px; }
     .footer-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 25px 0; }
@@ -328,692 +282,49 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 991px) {
-      section {
-        padding: 40px 0;
-      }
-
-      .section-title h2 {
-        font-size: 30px;
-      }
-
-      .normal_white_box {
-        padding: 30px 20px;
-      }
-
-      .dark_background {
-        padding: 35px 25px;
-      }
+      section { padding: 40px 0; }
+      .section-title h2 { font-size: 30px; }
+      .normal_white_box { padding: 30px 20px; }
+      .dark_background { padding: 35px 25px; }
     }
 
     @media (max-width: 768px) {
-
-      /* MOBILE CARD GAP */
       .review_row {
         margin-left: 0 !important;
         margin-right: 0 !important;
       }
-
       .review_row [class*="col-"] {
         width: 100%;
         padding-left: 0 !important;
         padding-right: 0 !important;
         padding-bottom: 16px !important;
-        margin-bottom: 0 !important;
+      }
+      .normal_white_box h1 { font-size: 34px !important; }
+      .normal_white_box { padding: 30px 18px; }
+      .single_review { padding: 25px 20px; }
+      .dark_background { padding: 30px 18px; }
+      .dark_background .row > [class*="col-"] {
+        width: 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-bottom: 12px;
       }
     }
 
-
-      /* =========================================================
-   FINAL RESPONSIVE FIXES - ALL DEVICES
-   ========================================================= */
-
-/* Prevent horizontal scrolling on every device */
-html,
-body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* Make images responsive */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Better container behavior */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* =========================================================
-   LARGE TABLETS / SMALL LAPTOPS
-   ========================================================= */
-
-@media (max-width: 1100px) {
-
-  .container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .nav-links {
-    gap: 18px;
-  }
-
-  .nav-links li a {
-    font-size: 15px;
-  }
-
-  .cta-btn {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
-
-  .section-title h2 {
-    font-size: 34px;
-  }
-
-  .single_review {
-    padding: 25px 18px;
-  }
-}
-
-
-/* =========================================================
-   TABLETS
-   ========================================================= */
-
-@media (max-width: 991px) {
-
-  section {
-    padding: 45px 0;
-  }
-
-  .top-offer {
-    padding: 12px 15px;
-  }
-
-  .offer-container {
-    gap: 15px;
-  }
-
-  .top-offer p {
-    font-size: 14px;
-    text-align: center;
-  }
-
-  .top-offer strong {
-    font-size: 18px;
-  }
-
-  /* Header */
-  .nav {
-    padding: 10px 0;
-  }
-
-  .nav-links {
-    gap: 15px;
-  }
-
-  .nav-links li a {
-    font-size: 14px;
-  }
-
-  .cta-btn {
-    font-size: 13px;
-    padding: 8px 10px;
-  }
-
-  /* Hero */
-  .normal_white_box {
-    padding: 40px 25px;
-  }
-
-  .normal_white_box h1 {
-    font-size: 42px !important;
-    line-height: 1.15;
-  }
-
-  .normal_white_box p {
-    max-width: 100%;
-  }
-
-  /* Section headings */
-  .section-title h2 {
-    font-size: 32px;
-    line-height: 1.2;
-  }
-
-  .section-title p {
-    font-size: 17px;
-  }
-
-  /* Cards */
-  .single_review h3 {
-    font-size: 19px;
-  }
-
-  .single_review p {
-    font-size: 15px;
-  }
-
-  /* Migration */
-  .dark_background {
-    padding: 35px 25px;
-  }
-
-  .dark_background h2 {
-    line-height: 1.2;
-  }
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-  /* General */
-  section {
-    padding: 35px 0;
-  }
-
-  .container {
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  /* =======================================================
-     TOP OFFER
-     ======================================================= */
-
-  .top-offer {
-    padding: 12px 15px;
-  }
-
-  .offer-container {
-    width: 100%;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .top-offer p {
-    width: 100%;
-    font-size: 14px;
-    line-height: 1.5;
-    text-align: center;
-  }
-
-  .top-offer strong {
-    font-size: 17px;
-  }
-
-  .offer-btn {
-    width: 160px;
-    padding: 9px 20px;
-    text-align: center;
-  }
-
-
-  /* =======================================================
-     HEADER
-     ======================================================= */
-
-  header {
-    position: relative;
-  }
-
-  .nav {
-    width: 100%;
-    flex-direction: column;
-    padding: 12px 0;
-    gap: 12px;
-  }
-
-  .logo {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .logo-img {
-    height: 42px;
-    max-width: 150px;
-  }
-
-  .navbar {
-    width: 100%;
-    flex: none;
-  }
-
-  .nav-links {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 8px 16px;
-  }
-
-  .nav-links li {
-    margin: 0;
-  }
-
-  .nav-links li a {
-    font-size: 14px;
-    white-space: nowrap;
-  }
-
-  .cta-btn {
-    width: 100%;
-    max-width: 300px;
-    text-align: center;
-    font-size: 14px;
-    padding: 10px 15px;
-  }
-
-
-  /* =======================================================
-     HERO
-     ======================================================= */
-
-  .normal_white_box {
-    padding: 30px 18px;
-    border-radius: 12px;
-  }
-
-  .hero-icon {
-    font-size: 42px;
-  }
-
-  /* Overrides the inline 48px heading */
-  .normal_white_box h1 {
-    font-size: 34px !important;
-    line-height: 1.15 !important;
-    margin: 10px 0 !important;
-    word-break: normal;
-    overflow-wrap: break-word;
-  }
-
-  .normal_white_box > p {
-    line-height: 1.5;
-  }
-
-  .normal_white_box p[style*="font-size:22px"] {
-    font-size: 19px !important;
-  }
-
-  .large_text {
-    font-size: 16px;
-    line-height: 1.65;
-  }
-
-  /* Hero buttons */
-  .normal_white_box div[style*="display:flex"] {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px !important;
-  }
-
-  .normal_white_box div[style*="display:flex"] a {
-    width: 100%;
-    max-width: 320px;
-    text-align: center;
-  }
-
-  .new_button,
-  .round_btn {
-    padding: 12px 20px;
-    font-size: 15px;
-  }
-
-
-  /* =======================================================
-     SECTION TITLES
-     ======================================================= */
-
-  .section-title {
-    margin-bottom: 28px;
-  }
-
-  .section-title h2 {
-    font-size: 27px;
-    line-height: 1.2;
-  }
-
-  .section-title p {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-
-  .section-title .badge {
-    font-size: 12px;
-    padding: 4px 14px;
-  }
-
-
-  /* =======================================================
-     CARDS
-     ======================================================= */
-
-  .review_row {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .review_row [class*="col-"] {
-    width: 100%;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-bottom: 16px !important;
-    margin-bottom: 0 !important;
-    display: flex;
-  }
-
-  .single_review {
-    width: 100%;
-    padding: 25px 20px;
-    min-height: 0;
-  }
-
-  .single_review i {
-    font-size: 38px;
-    margin-bottom: 12px;
-  }
-
-  .single_review h3 {
-    font-size: 20px;
-    line-height: 1.3;
-  }
-
-  .single_review p {
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
-
-  /* =======================================================
-     MIGRATION SECTION
-     ======================================================= */
-
-  .dark_background {
-    padding: 30px 18px;
-    border-radius: 12px;
-  }
-
-  .dark_background h2 {
-    font-size: 26px !important;
-    line-height: 1.25;
-  }
-
-  .dark_background > .text-center p {
-    font-size: 16px;
-  }
-
-  /* Four migration steps become one per row */
-  .dark_background .row {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .dark_background .row > [class*="col-"] {
-    width: 100%;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-bottom: 12px;
-  }
-
-  .step-box {
-    padding: 18px 15px;
-  }
-
-  .step-box h4 {
-    font-size: 18px;
-    margin-bottom: 5px;
-  }
-
-  .step-box p {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-
-  /* =======================================================
-     CTA
-     ======================================================= */
-
-  #contact .dark_background h2 {
-    font-size: 27px !important;
-  }
-
-  #contact .new_button {
-    width: 100%;
-    max-width: 340px;
-    padding: 14px 20px !important;
-    font-size: 18px !important;
-    white-space: normal;
-  }
-
-
-  /* =======================================================
-     FOOTER
-     ======================================================= */
-
-  footer {
-    padding: 40px 15px;
-  }
-
-  footer h3 {
-    font-size: 26px;
-  }
-
-  footer p {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  .copy {
-    font-size: 13px;
-    line-height: 1.5;
-  }
-
-  .disclaimer {
-    font-size: 12px;
-    line-height: 1.6;
-  }
-}
-
-
-/* =========================================================
-   SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-  section {
-    padding: 28px 0;
-  }
-
-  .container {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  /* Offer */
-  .top-offer p {
-    font-size: 13px;
-  }
-
-  .top-offer strong {
-    font-size: 16px;
-  }
-
-  .offer-btn {
-    width: 150px;
-    padding: 8px 15px;
-  }
-
-  /* Header */
-  .logo-img {
-    height: 38px;
-  }
-
-  .nav-links {
-    gap: 7px 12px;
-  }
-
-  .nav-links li a {
-    font-size: 13px;
-  }
-
-  .cta-btn {
-    max-width: 280px;
-    font-size: 13px;
-  }
-
-  /* Hero */
-  .normal_white_box {
-    padding: 25px 15px;
-  }
-
-  .hero-icon {
-    font-size: 38px;
-  }
-
-  .normal_white_box h1 {
-    font-size: 29px !important;
-  }
-
-  .normal_white_box p[style*="font-size:22px"] {
-    font-size: 17px !important;
-  }
-
-  .large_text {
-    font-size: 15px;
-  }
-
-  /* Buttons */
-  .normal_white_box div[style*="display:flex"] a {
-    max-width: 100%;
-  }
-
-  /* Section title */
-  .section-title h2 {
-    font-size: 24px;
-  }
-
-  .section-title p {
-    font-size: 15px;
-  }
-
-  /* Cards */
-  .single_review {
-    padding: 22px 16px;
-  }
-
-  .single_review i {
-    font-size: 36px;
-  }
-
-  .single_review h3 {
-    font-size: 18px;
-  }
-
-  .single_review p {
-    font-size: 14px;
-  }
-
-  /* Migration */
-  .dark_background {
-    padding: 25px 15px;
-  }
-
-  .dark_background h2 {
-    font-size: 23px !important;
-  }
-
-  .step-box {
-    padding: 16px 13px;
-  }
-
-  /* CTA */
-  #contact .dark_background h2 {
-    font-size: 24px !important;
-  }
-
-  #contact .new_button {
-    font-size: 16px !important;
-  }
-
-  /* Footer */
-  footer h3 {
-    font-size: 23px;
-  }
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 360px) {
-
-  .nav-links {
-    gap: 6px 9px;
-  }
-
-  .nav-links li a {
-    font-size: 12px;
-  }
-
-  .normal_white_box h1 {
-    font-size: 26px !important;
-  }
-
-  .section-title h2 {
-    font-size: 22px;
-  }
-
-  .single_review h3 {
-    font-size: 17px;
-  }
-
-  .cta-btn {
-    font-size: 12px;
-  }
-}
-
-
-/* =========================================================
-   TOUCH DEVICES
-   ========================================================= */
-
-@media (hover: none) {
-
-  .single_review:hover {
-    transform: none;
-  }
-
-  .offer-btn:hover,
-  .new_button:hover,
-  .round_btn:hover,
-  .cta-btn:hover {
-    transform: none;
-  }
-}
+    @media (max-width: 480px) {
+      section { padding: 28px 0; }
+      .normal_white_box h1 { font-size: 29px !important; }
+      .section-title h2 { font-size: 24px; }
+      .single_review i { font-size: 36px; }
+      .single_review h3 { font-size: 18px; }
+      .large_text { font-size: 15px; }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- ===== TOP OFFER (EXACT copy from index) ===== -->
+  <!-- ===== TOP OFFER BAR (same as about.html) ===== -->
   <div class="top-offer">
     <div class="offer-container">
       <p>SUMMER SAVINGS <strong>90% OFF</strong> Quickbooks Assistance for 3 months* Ends 8/27</p>
@@ -1021,7 +332,7 @@ img {
     </div>
   </div>
 
-  <!-- ===== HEADER (EXACT copy from index) ===== -->
+  <!-- ===== HEADER (same as about.html) ===== -->
   <header>
     <div class="container nav">
       <div class="logo">
@@ -1038,6 +349,17 @@ img {
       <a href="tel:+18004421838" class="cta-btn">📞 +1-888-864-6432</a>
     </div>
   </header>
+
+  <!-- ===== HEADER BOTTOM (same as about.html) ===== -->
+  <div class="header_bottom">
+    <div class="container">
+      <p>
+        <span>🚀 Expert QuickBooks Migration &amp; Support</span>
+        <a class="round_btn outline_dark" href="tel:+18888646432"><i class="fa fa-phone"></i> +1-888-864-6432</a>
+        <a class="round_btn" href="#contact">Free Consultation</a>
+      </p>
+    </div>
+  </div>
 
   <main>
 
@@ -1068,7 +390,7 @@ img {
               <i class="fa fa-phone"></i> +1-888-864-6432
             </a>
 
-            <a href="#services" class="round_btn white_bg">
+            <a href="#services" class="round_btn white_bg" style="background:#fff; color:#4ade80; border-color:#4ade80;">
               View Services
             </a>
           </div>
@@ -1309,7 +631,7 @@ img {
 
   </main>
 
-  <!-- ===== FOOTER (EXACT copy from index) ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="container">
       <h3>Quickbooks Assistance</h3>

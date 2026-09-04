@@ -23,76 +23,60 @@
     a { transition: 0.3s; }
     .container { max-width: 1200px; }
 
-    /* ===== TOP BAR ===== */
-    .top_text {
-      background: #4ade80;
-      color: #000;
-      font-weight: 600;
-      padding: 12px 0;
-      font-size: 16px;
+    /* ===== TOP OFFER BAR (same as about.html) ===== */
+    .top-offer { background: #58e56d; padding: 14px 20px; }
+    .offer-container {
+      max-width: 1200px; margin: 0 auto; display: flex;
+      justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap;
     }
-    .top_text strong { font-weight: 800; font-size: 18px; }
+    .top-offer p { margin: 0; color: #000; font-size: 16px; font-weight: 500; }
+    .top-offer strong { font-size: 20px; font-weight: 800; }
+    .offer-btn {
+      background: #000; color: #fff; text-decoration: none;
+      padding: 10px 28px; border-radius: 8px; font-weight: 700; transition: .3s;
+    }
+    .offer-btn:hover { background: #222; }
+    @media (max-width:768px) {
+      .offer-container { flex-direction: column; gap: 12px; text-align: center; }
+      .top-offer p { font-size: 15px; }
+      .offer-btn { width: 180px; text-align: center; }
+    }
 
-    /* ===== HEADER ===== */
-    #header {
-      background: #fff;
-      padding: 12px 0;
-      border-bottom: 1px solid #eef2f6;
+    /* ===== HEADER (same as about.html) ===== */
+    header {
+      position: sticky; top: 0; z-index: 999;
+      background: #fff; border-bottom: 1px solid #eee;
     }
-    #logo img { max-height: 50px; width: auto; }
-    .openbtn {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-      color: #333;
-      float: right;
-      margin-top: 6px;
-      background: none;
-      border: none;
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; gap: 10px;
     }
-    .closebtn {
-      display: none;
-      font-size: 36px;
-      cursor: pointer;
-      color: #333;
-      text-align: right;
-      padding: 10px 20px;
-      background: none;
-      border: none;
+    .logo-img { height: 45px; width: auto; max-width: 120px; object-fit: contain; display: block; }
+    .cta-btn {
+      background: #4ade80; color: #fff; padding: 8px 16px;
+      border-radius: 8px; font-weight: 700; text-decoration: none; white-space: nowrap;
     }
-    #main-menu {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-      margin: 0;
-      padding: 0;
-      align-items: center;
+    .cta-btn:hover { background: #22c55e; color: #fff; }
+    .navbar { flex: 1; display: flex; justify-content: center; }
+    .nav-links {
+      display: flex; align-items: center; list-style: none; gap: 30px;
+      margin: 0; padding: 0;
     }
-    #main-menu li a {
-      color: #1f2937;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 16px;
-      padding: 6px 0;
-      border-bottom: 2px solid transparent;
+    .nav-links li a {
+      text-decoration: none; color: #333; font-weight: 600; font-size: 16px; transition: .3s;
     }
-    #main-menu li a:hover {
-      color: #4ade80;
-      border-bottom-color: #4ade80;
-    }
-    .top_search, .top_cart {
-      background: none;
-      border: none;
-      color: #333;
-      font-size: 18px;
-      margin-left: 14px;
-      padding: 6px 8px;
-      transition: 0.3s;
-    }
-    .top_search:hover, .top_cart:hover { color: #4ade80; }
-    #search_form { margin-top: 10px; }
+    .nav-links li a:hover { color: #4ade80; }
 
-    /* ===== HEADER BOTTOM ===== */
+    @media (max-width:768px) {
+      .nav { flex-direction: column; gap: 10px; padding: 10px 0; }
+      .logo-img { height: 40px; }
+      .navbar { width: 100%; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+      .nav-links li a { font-size: 15px; }
+      .cta-btn { width: 100%; text-align: center; }
+    }
+
+    /* ===== HEADER BOTTOM (same as about.html) ===== */
     .header_bottom {
       background: #4ade80;
       padding: 14px 0;
@@ -110,7 +94,6 @@
     }
     .header_bottom span { font-size: 17px; }
 
-    /* ===== BUTTONS ===== */
     .round_btn {
       display: inline-block;
       padding: 10px 28px;
@@ -128,15 +111,6 @@
       color: #fff;
       text-decoration: none;
     }
-    .round_btn.white_bg {
-      background: #fff;
-      color: #4ade80;
-      border: 2px solid #4ade80;
-    }
-    .round_btn.white_bg:hover {
-      background: #4ade80;
-      color: #fff;
-    }
     .round_btn.outline_dark {
       background: transparent;
       color: #fff;
@@ -147,6 +121,12 @@
       color: #4ade80;
     }
 
+    @media (max-width:768px) {
+      .header_bottom p { flex-direction: column; gap: 12px; }
+      .header_bottom span { font-size: 15px; }
+    }
+
+    /* ===== BUTTONS ===== */
     .new_button {
       display: inline-block;
       padding: 14px 36px;
@@ -279,7 +259,7 @@
       width: 100%;
     }
 
-    /* ===== CONTACT FORM (W3-style) ===== */
+    /* ===== CONTACT FORM ===== */
     .w3-form-card {
       background: #fff;
       border-radius: 20px;
@@ -357,7 +337,6 @@
       flex: 1 1 45%;
       min-width: 140px;
     }
-    /* form error & success */
     .form-error {
       color: #dc2626;
       font-size: 13px;
@@ -422,7 +401,7 @@
 
     .no_padding { padding: 0; }
 
-    /* ===== FOOTER (EXACT copy from index) ===== */
+    /* ===== FOOTER ===== */
     footer { background: #0f172a; color: #fff; padding: 60px 0; text-align: center; }
     footer h3 { font-size: 32px; margin-bottom: 10px; }
     .footer-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 25px 0; }
@@ -440,38 +419,6 @@
     }
 
     @media (max-width: 768px) {
-      .openbtn { display: block; }
-      #main-nav {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #fff;
-        z-index: 9999;
-        overflow-y: auto;
-        padding: 20px;
-      }
-      #main-nav .closebtn { display: block; }
-      #main-menu {
-        flex-direction: column;
-        gap: 0;
-        margin-top: 20px;
-      }
-      #main-menu li {
-        padding: 14px 0;
-        border-bottom: 1px solid #f0f0f0;
-        width: 100%;
-      }
-      #main-menu li a { font-size: 18px; display: block; }
-      .header_bottom p {
-        flex-direction: column;
-        gap: 12px;
-      }
-      .header_bottom span { font-size: 15px; }
-      .top_text { font-size: 14px; padding: 10px; }
-      .top_text strong { font-size: 15px; }
       .hero_banner h1 { font-size: 28px; }
       .hero_banner { padding: 40px 0 50px; }
       .flex_row .col-sm-4 { width: 100%; }
@@ -490,57 +437,38 @@
 </head>
 <body>
 
-<!-- ===== TOP BAR ===== -->
-<div class="top_text text-center">
-  <strong>🔥 SUMMER SAVINGS – 90% OFF</strong> QuickBooks Assistance for 3 months* Ends 8/27
+<!-- ===== TOP OFFER BAR (same as about.html) ===== -->
+<div class="top-offer">
+  <div class="offer-container">
+    <p>SUMMER SAVINGS <strong>90% OFF</strong> Quickbooks Assistance for 3 months* Ends 8/27</p>
+    <a href="tel:+1-888-864-6432" class="offer-btn">Buy now</a>
+  </div>
 </div>
 
-<!-- ===== HEADER ===== -->
-<header id="header">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-3 col-xs-8">
-        <div id="logo">
-          <a href="index.html">
-            <img src="./images/logo22.png" alt="QuickBooks Assistance" style="max-height:50px;width:auto;">
-          </a>
-        </div>
-      </div>
-      <div class="col-sm-8 hidden-xs">
-        <ul id="main-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-1 hidden-xs text-right">
-        <a href="tel:+18004421838" class="top_cart"><i class="fa fa-phone"></i></a>
-      </div>
-      <div class="col-xs-4 visible-xs text-right">
-        <button class="openbtn" onclick="openNav()">☰</button>
-      </div>
+<!-- ===== HEADER (same as about.html) ===== -->
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <a href="index.html"><img src="images/logo22.png" alt="Quickbooks Assistance Logo" class="logo-img"></a>
     </div>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="./about.html">About Us</a></li>
+        <li><a href="./service.html">Services</a></li>
+        <li><a href="./contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <a href="tel:+18004421838" class="cta-btn">📞 +1-888-864-6432</a>
   </div>
 </header>
 
-<!-- ===== MOBILE NAV ===== -->
-<div id="main-nav" style="display:none;">
-  <button class="closebtn" onclick="closeNav()">×</button>
-  <ul style="list-style:none; padding:0; margin-top:30px;">
-    <li style="padding:14px 0; border-bottom:1px solid #eee;"><a href="index.html" style="font-size:18px; font-weight:600; color:#333; text-decoration:none;">Home</a></li>
-    <li style="padding:14px 0; border-bottom:1px solid #eee;"><a href="about.html" style="font-size:18px; font-weight:600; color:#333; text-decoration:none;">About</a></li>
-    <li style="padding:14px 0; border-bottom:1px solid #eee;"><a href="#services" style="font-size:18px; font-weight:600; color:#333; text-decoration:none;">Services</a></li>
-    <li style="padding:14px 0;"><a href="contact.html" style="font-size:18px; font-weight:600; color:#333; text-decoration:none;">Contact</a></li>
-  </ul>
-</div>
-
-<!-- ===== HEADER BOTTOM ===== -->
+<!-- ===== HEADER BOTTOM (same as about.html) ===== -->
 <div class="header_bottom">
   <div class="container">
     <p>
       <span>🚀 Expert QuickBooks Migration &amp; Support</span>
-      <a class="round_btn outline_dark" href="tel:+18004421838"><i class="fa fa-phone"></i> +1-888-864-6432</a>
+      <a class="round_btn outline_dark" href="tel:+18888646432"><i class="fa fa-phone"></i> +1-888-864-6432</a>
       <a class="round_btn" href="#contact">Free Consultation</a>
     </p>
   </div>
@@ -549,11 +477,10 @@
 <!-- ===== MAIN ===== -->
 <main>
 
-  <!-- ===== HERO (with form on right side) ===== -->
+  <!-- ===== HERO ===== -->
   <section class="hero_banner">
     <div class="container">
       <div class="row">
-        <!-- left column: text + cards -->
         <div class="col-md-6">
           <div class="mini_container" style="max-width:100%;">
             <h1>Contact Our <span>QuickBooks Experts</span></h1>
@@ -563,7 +490,6 @@
           </div>
         </div>
 
-        <!-- right column: W3-style form (FIXED) -->
         <div class="col-md-6">
           <div class="w3-form-card">
             <h3>Get in touch</h3>
@@ -596,13 +522,12 @@
         </div>
       </div>
 
-      <!-- service cards (below) -->
       <div class="row flex_row">
         <div class="col-sm-4">
           <div class="normal_white_box">
             <i class="fa fa-graduation-cap"></i>
             <h3>QuickBooks Training</h3>
-            <p>Whether you're new to QuickBooks or looking to enhance your skills, our experts provide tailored training to help you master the software. Subscribe to our channel for free tips and tutorials.</p>
+            <p>Whether you're new to QuickBooks or looking to enhance your skills, our experts provide tailored training to help you master the software.</p>
             <p class="buttons"><a href="#" class="round_btn" target="_blank">Watch Tutorials</a></p>
           </div>
         </div>
@@ -610,7 +535,7 @@
           <div class="normal_white_box">
             <i class="fa fa-comments"></i>
             <h3>Free Consultation</h3>
-            <p>Have questions about QuickBooks? Our experts are here to help you choose the right version, understand pricing, and get set up correctly for your business needs.</p>
+            <p>Have questions about QuickBooks? Our experts are here to help you choose the right version, understand pricing, and get set up correctly.</p>
             <p class="buttons"><a href="#" class="round_btn" target="_blank">Schedule a Call</a></p>
           </div>
         </div>
@@ -618,7 +543,7 @@
           <div class="normal_white_box">
             <i class="fa fa-file-text"></i>
             <h3>Migration Support</h3>
-            <p>Need to migrate from QuickBooks Desktop to Online or switch between versions? Our team handles secure data migration with zero data loss guaranteed.</p>
+            <p>Need to migrate from QuickBooks Desktop to Online or switch between versions? Our team handles secure data migration with zero data loss.</p>
             <p class="buttons"><a href="#" class="round_btn">Learn More</a></p>
           </div>
         </div>
@@ -642,7 +567,7 @@
           <div class="normal_white_box">
             <i class="fa fa-users"></i>
             <h3>Our Team</h3>
-            <p>Meet the passionate professionals behind QuickBooks Assistance. Our certified experts are dedicated to providing you with personalized service and support.</p>
+            <p>Meet the passionate professionals behind QuickBooks Assistance. Our certified experts are dedicated to providing you with personalized service.</p>
             <p class="buttons"><a href="about.html" class="round_btn">About Us</a></p>
           </div>
         </div>
@@ -723,7 +648,7 @@
 
 </main>
 
-<!-- ===== FOOTER (EXACT copy from index) ===== -->
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="container">
     <h3>Quickbooks Assistance</h3>
@@ -734,94 +659,78 @@
   </div>
 </footer>
 
-<!-- ===== SCRIPTS ===== -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script>
-function openNav() {
-  document.getElementById("main-nav").style.display = "block";
-}
-function closeNav() {
-  document.getElementById("main-nav").style.display = "none";
-}
-function getSearchForm() {
-  $("#search_form").slideToggle();
-}
+  // ===== FORM HANDLING =====
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    const nameInput = document.getElementById('name');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+    const msgInput = document.getElementById('msg');
+    const nameErr = document.getElementById('nameError');
+    const phoneErr = document.getElementById('phoneError');
+    const emailErr = document.getElementById('emailError');
+    const successDiv = document.getElementById('formSuccess');
 
-// ===== FORM HANDLING =====
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('contactForm');
-  const nameInput = document.getElementById('name');
-  const phoneInput = document.getElementById('phone');
-  const emailInput = document.getElementById('email');
-  const msgInput = document.getElementById('msg');
-  const nameErr = document.getElementById('nameError');
-  const phoneErr = document.getElementById('phoneError');
-  const emailErr = document.getElementById('emailError');
-  const successDiv = document.getElementById('formSuccess');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    let valid = true;
+      nameErr.style.display = 'none';
+      phoneErr.style.display = 'none';
+      emailErr.style.display = 'none';
+      successDiv.style.display = 'none';
 
-    // Hide previous errors & success
-    nameErr.style.display = 'none';
-    phoneErr.style.display = 'none';
-    emailErr.style.display = 'none';
-    successDiv.style.display = 'none';
-
-    // Validate name
-    if (!nameInput.value.trim()) {
-      nameErr.style.display = 'block';
-      valid = false;
-    }
-
-    // Validate phone (at least 7 digits)
-    const phoneVal = phoneInput.value.trim().replace(/\D/g, '');
-    if (phoneVal.length < 7) {
-      phoneErr.style.display = 'block';
-      valid = false;
-    }
-
-    // Validate email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
-      emailErr.style.display = 'block';
-      valid = false;
-    }
-
-    if (!valid) return;
-
-    // Submit via Web3Forms
-    const formData = new FormData();
-    formData.append('access_key', 'c9fd6b62-5866-4b03-9db1-cb20e3c150e2');
-    formData.append('name', nameInput.value.trim());
-    formData.append('phone', phoneInput.value.trim());
-    formData.append('email', emailInput.value.trim());
-    formData.append('message', msgInput.value.trim());
-    formData.append('subject', 'New QuickBooks Assistance Contact');
-
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        successDiv.style.display = 'block';
-        form.reset();
-        setTimeout(() => {
-          successDiv.style.display = 'none';
-        }, 6000);
-      } else {
-        alert('Something went wrong. Please try again later.');
+      if (!nameInput.value.trim()) {
+        nameErr.style.display = 'block';
+        valid = false;
       }
-    })
-    .catch(() => {
-      alert('Network error. Please check your connection.');
+
+      const phoneVal = phoneInput.value.trim().replace(/\D/g, '');
+      if (phoneVal.length < 7) {
+        phoneErr.style.display = 'block';
+        valid = false;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+        emailErr.style.display = 'block';
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      const formData = new FormData();
+      formData.append('access_key', 'c9fd6b62-5866-4b03-9db1-cb20e3c150e2');
+      formData.append('name', nameInput.value.trim());
+      formData.append('phone', phoneInput.value.trim());
+      formData.append('email', emailInput.value.trim());
+      formData.append('message', msgInput.value.trim());
+      formData.append('subject', 'New QuickBooks Assistance Contact');
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          successDiv.style.display = 'block';
+          form.reset();
+          setTimeout(() => {
+            successDiv.style.display = 'none';
+          }, 6000);
+        } else {
+          alert('Something went wrong. Please try again later.');
+        }
+      })
+      .catch(() => {
+        alert('Network error. Please check your connection.');
+      });
     });
   });
-});
 </script>
 </body>
 </html>

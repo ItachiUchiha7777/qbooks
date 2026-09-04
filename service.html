@@ -9,15 +9,15 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     /* =========================================================
-       RESET & BASE (matching previous code)
+       RESET & BASE
     ========================================================= */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Outfit', Arial, sans-serif;
+      font-family: 'Inter', Arial, sans-serif;
       background: #f6f7fb;
       color: #1f2937;
       line-height: 1.6;
@@ -27,88 +27,60 @@
     a { transition: 0.3s; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* =========================================================
-       TOP BAR (matching previous code)
-    ========================================================= */
-    .top_text {
-      background: #4ade80;
-      color: #000;
-      font-weight: 600;
-      padding: 12px 0;
-      font-size: 16px;
-      text-align: center;
+    /* ===== TOP OFFER BAR (same as about.html) ===== */
+    .top-offer { background: #58e56d; padding: 14px 20px; }
+    .offer-container {
+      max-width: 1200px; margin: 0 auto; display: flex;
+      justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap;
     }
-    .top_text strong {
-      font-weight: 800;
-      font-size: 18px;
-      margin-right: 8px;
+    .top-offer p { margin: 0; color: #000; font-size: 16px; font-weight: 500; }
+    .top-offer strong { font-size: 20px; font-weight: 800; }
+    .offer-btn {
+      background: #000; color: #fff; text-decoration: none;
+      padding: 10px 28px; border-radius: 8px; font-weight: 700; transition: .3s;
+    }
+    .offer-btn:hover { background: #222; }
+    @media (max-width:768px) {
+      .offer-container { flex-direction: column; gap: 12px; text-align: center; }
+      .top-offer p { font-size: 15px; }
+      .offer-btn { width: 180px; text-align: center; }
     }
 
-    /* =========================================================
-       HEADER (matching previous code)
-    ========================================================= */
-    #header {
-      background: #fff;
-      padding: 12px 0;
-      border-bottom: 1px solid #eef2f6;
+    /* ===== HEADER (same as about.html) ===== */
+    header {
+      position: sticky; top: 0; z-index: 999;
+      background: #fff; border-bottom: 1px solid #eee;
     }
-    #logo img { max-height: 50px; width: auto; }
-    .openbtn {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-      color: #333;
-      float: right;
-      margin-top: 6px;
-      background: none;
-      border: none;
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; gap: 10px;
     }
-    .closebtn {
-      display: none;
-      font-size: 36px;
-      cursor: pointer;
-      color: #333;
-      text-align: right;
-      padding: 10px 20px;
-      background: none;
-      border: none;
-      width: 100%;
+    .logo-img { height: 45px; width: auto; max-width: 120px; object-fit: contain; display: block; }
+    .cta-btn {
+      background: #4ade80; color: #fff; padding: 8px 16px;
+      border-radius: 8px; font-weight: 700; text-decoration: none; white-space: nowrap;
     }
-    #main-menu {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-      margin: 0;
-      padding: 0;
-      align-items: center;
+    .cta-btn:hover { background: #22c55e; color: #fff; }
+    .navbar { flex: 1; display: flex; justify-content: center; }
+    .nav-links {
+      display: flex; align-items: center; list-style: none; gap: 30px;
+      margin: 0; padding: 0;
     }
-    #main-menu li a {
-      color: #1f2937;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 16px;
-      padding: 6px 0;
-      border-bottom: 2px solid transparent;
+    .nav-links li a {
+      text-decoration: none; color: #333; font-weight: 600; font-size: 16px; transition: .3s;
     }
-    #main-menu li a:hover,
-    #main-menu li a.active {
-      color: #4ade80;
-      border-bottom-color: #4ade80;
-    }
-    .top_cart {
-      background: none;
-      border: none;
-      color: #333;
-      font-size: 18px;
-      margin-left: 14px;
-      padding: 6px 8px;
-      transition: 0.3s;
-    }
-    .top_cart:hover { color: #4ade80; }
+    .nav-links li a:hover { color: #4ade80; }
 
-    /* =========================================================
-       HEADER BOTTOM (matching previous code)
-    ========================================================= */
+    @media (max-width:768px) {
+      .nav { flex-direction: column; gap: 10px; padding: 10px 0; }
+      .logo-img { height: 40px; }
+      .navbar { width: 100%; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+      .nav-links li a { font-size: 15px; }
+      .cta-btn { width: 100%; text-align: center; }
+    }
+
+    /* ===== HEADER BOTTOM (same as about.html) ===== */
     .header_bottom {
       background: #4ade80;
       padding: 14px 0;
@@ -126,9 +98,6 @@
     }
     .header_bottom span { font-size: 17px; }
 
-    /* =========================================================
-       BUTTONS (matching previous code)
-    ========================================================= */
     .round_btn {
       display: inline-block;
       padding: 10px 28px;
@@ -156,8 +125,13 @@
       color: #4ade80;
     }
 
+    @media (max-width:768px) {
+      .header_bottom p { flex-direction: column; gap: 12px; }
+      .header_bottom span { font-size: 15px; }
+    }
+
     /* =========================================================
-       BANNER SERVICE – solid green bg (like top bar & header bottom)
+       BANNER SERVICE – solid green bg
     ========================================================= */
     .banner-service {
       background: #4ade80;
@@ -272,7 +246,7 @@
     }
 
     /* =========================================================
-       CTA SECTION (dark background like hero)
+       CTA SECTION (dark background)
     ========================================================= */
     .section { padding: 60px 0; }
     .cta {
@@ -315,7 +289,7 @@
     }
 
     /* =========================================================
-       FOOTER (EXACT copy from previous code)
+       FOOTER
     ========================================================= */
     footer { background: #0f172a; color: #fff; padding: 60px 0; text-align: center; }
     footer h3 { font-size: 32px; margin-bottom: 10px; }
@@ -335,49 +309,6 @@
     }
 
     @media (max-width: 768px) {
-      /* Mobile menu */
-      .openbtn { display: block; }
-      #main-nav {
-        display: none;
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: #fff;
-        z-index: 9999;
-        overflow-y: auto;
-        padding: 20px;
-      }
-      #main-nav .closebtn { display: block; }
-      #main-menu {
-        flex-direction: column;
-        gap: 0;
-        margin-top: 20px;
-      }
-      #main-menu li {
-        padding: 14px 0;
-        border-bottom: 1px solid #f0f0f0;
-        width: 100%;
-      }
-      #main-menu li a { font-size: 18px; display: block; }
-
-      /* Header bottom */
-      .header_bottom p {
-        flex-direction: column;
-        gap: 12px;
-      }
-      .header_bottom span { font-size: 15px; }
-
-      /* Top bar */
-      .top_text {
-        font-size: 14px;
-        padding: 10px;
-      }
-      .top_text strong {
-        font-size: 15px;
-        display: block;
-        margin-bottom: 2px;
-      }
-
       .row { grid-template-columns: 1fr; }
       .service-heading h3 { font-size: 28px; }
       .banner-service h1 { font-size: 28px; }
@@ -385,41 +316,11 @@
       .cta h2 { font-size: 26px; }
       .cta .btn-primary { font-size: 16px; padding: 12px 24px; }
 
-      /* Fix container padding on mobile */
       .container {
         padding-left: 15px;
         padding-right: 15px;
         width: 100%;
         overflow: hidden;
-      }
-
-      /* FIX: header row flex for mobile */
-      #header .row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-      }
-      #header .row > div:first-child {
-        flex: 0 0 auto;
-        width: auto;
-      }
-      #header .row > div:last-child {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        padding-left: 0;
-      }
-      /* hide main menu on mobile, show hamburger */
-      #main-menu {
-        display: none !important;
-      }
-      .openbtn {
-        display: block !important;
-      }
-      .top_cart {
-        margin-left: 8px;
       }
     }
 
@@ -434,82 +335,62 @@
       .cta h2 { font-size: 22px; }
       .cta .btn-primary { font-size: 15px; padding: 10px 20px; }
     }
-
-    /* Desktop: ensure menu is visible and hamburger hidden */
-    @media (min-width: 769px) {
-      #main-menu {
-        display: flex !important;
-      }
-      .openbtn {
-        display: none !important;
-      }
-      #main-nav {
-        display: none !important;
-      }
-      #header .row > div:last-child {
-        padding-left: 290px;
-        justify-content: flex-start;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <!-- ===== TOP BAR (matching previous code) ===== -->
-  <div class="top_text">
-    <strong>🔥 SUMMER SAVINGS – 90% OFF</strong>
-    QuickBooks Assistance for 3 months* Ends 8/27
+  <!-- ===== TOP OFFER BAR (same as about.html) ===== -->
+  <div class="top-offer">
+    <div class="offer-container">
+      <p>SUMMER SAVINGS <strong>90% OFF</strong> Quickbooks Assistance for 3 months* Ends 8/27</p>
+      <a href="tel:+1-888-864-6432" class="offer-btn">Buy now</a>
+    </div>
   </div>
 
-  <!-- ===== HEADER (matching previous code) ===== -->
-  <header id="header">
-    <div class="container">
-      <div class="row" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-        <div style="flex:0 0 auto; width:auto;">
-          <div id="logo">
-            <a href="index.html">
-              <img src="images/logo22.png" alt="QuickBooks Assistance" style="max-height:50px;">
-            </a>
-          </div>
-        </div>
-        <div style="flex:1; display:flex; align-items:center; justify-content:flex-end; padding-left:0;">
-          <ul id="main-menu" style="display:flex; list-style:none; gap:30px; margin:0; padding:0; align-items:center;">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#services" class="active">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <a href="tel:+18004421838" class="top_cart" style="background:none; border:none; color:#333; font-size:18px; margin-left:14px; padding:6px 8px; transition:0.3s;">
-            <i class="fa fa-phone"></i>
-          </a>
-          <button class="openbtn" onclick="openNav()" style="display:none; font-size:28px; cursor:pointer; color:#333; background:none; border:none; margin-left:10px;">☰</button>
-        </div>
+  <!-- ===== HEADER (same as about.html) ===== -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <a href="index.html"><img src="images/logo22.png" alt="Quickbooks Assistance Logo" class="logo-img"></a>
       </div>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="./about.html">About Us</a></li>
+          <li><a href="./service.html">Services</a></li>
+          <li><a href="./contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <a href="tel:+18004421838" class="cta-btn">📞 +1-888-864-6432</a>
     </div>
   </header>
 
-  <!-- ===== MOBILE NAV ===== -->
-  <div id="main-nav" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#fff; z-index:9999; overflow-y:auto; padding:20px;">
-    <button class="closebtn" onclick="closeNav()" style="display:block; font-size:36px; cursor:pointer; color:#333; text-align:right; padding:10px 20px; background:none; border:none; width:100%;">×</button>
-    <ul style="list-style:none; padding:0; margin-top:30px;">
-      <li style="padding:14px 0; border-bottom:1px solid #eee;"><a href="index.html" style="font-size:18px; font-weight:600; color:#333; text-decoration:none;">Home</a></li>
-      <li style="padding:14px 0; border-bottom:1px solid #eee;"><a href="#services" style="font-size:18px; font-weight:600; color:#333; text-decoration:none;">Services</a></li>
-      <li style="padding:14px 0;"><a href="#contact" style="font-size:18px; font-weight:600; color:#333; text-decoration:none;">Contact</a></li>
-    </ul>
-  </div>
-
-  <!-- ===== HEADER BOTTOM (matching previous code) ===== -->
+  <!-- ===== HEADER BOTTOM (same as about.html) ===== -->
   <div class="header_bottom">
     <div class="container">
       <p>
-        <span>🚀 Expert QuickBooks Services &amp; Support</span>
-        <a class="round_btn outline_dark" href="tel:+18004421838"><i class="fa fa-phone"></i> +1-888-864-6432</a>
+        <span>🚀 Expert QuickBooks Migration &amp; Support</span>
+        <a class="round_btn outline_dark" href="tel:+18888646432"><i class="fa fa-phone"></i> +1-888-864-6432</a>
         <a class="round_btn" href="#contact">Free Consultation</a>
       </p>
     </div>
   </div>
 
+  <!-- ===== BANNER SERVICE ===== -->
+  <div class="banner-service">
+    <div class="container">
+      <h1>Our <span>Services</span></h1>
+      <div class="breadcrumb-nav">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><span style="margin:0 6px;">/</span></li>
+          <li>Services</li>
+        </ol>
+      </div>
+    </div>
+  </div>
 
-  <!-- ===== SERVICE SECTION (cards non-clickable) ===== -->
+  <!-- ===== SERVICE SECTION ===== -->
   <section class="py-5" id="services">
     <div class="container">
       <div class="service-heading">
@@ -755,7 +636,7 @@
     </div>
   </section>
 
-  <!-- ===== CTA SECTION (dark background like hero) ===== -->
+  <!-- ===== CTA SECTION ===== -->
   <section class="section" id="contact">
     <div class="container">
       <div class="cta">
@@ -767,7 +648,7 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER (EXACT copy from previous code) ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="container">
       <h3>Quickbooks Assistance</h3>
@@ -777,21 +658,6 @@
       <p class="disclaimer">Disclaimer: The product images and names displayed above are for reference purposes only. Quickbooks Assistance is an independent service provider and is not affiliated with or endorsed by any third-party brand. All trademarks belong to their respective owners.</p>
     </div>
   </footer>
-
-  <!-- ===== SCRIPTS ===== -->
-  <script>
-    function openNav() {
-      document.getElementById("main-nav").style.display = "block";
-      document.body.style.overflow = "hidden";
-    }
-    function closeNav() {
-      document.getElementById("main-nav").style.display = "none";
-      document.body.style.overflow = "";
-    }
-    document.querySelectorAll("#main-nav a").forEach(function(link) {
-      link.addEventListener("click", function() { closeNav(); });
-    });
-  </script>
 
 </body>
 </html>

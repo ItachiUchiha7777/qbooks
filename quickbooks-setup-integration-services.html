@@ -4,49 +4,121 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QuickBooks Assistance – Setup & Integration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     /* RESET & BASE */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', Arial, sans-serif; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', Arial, sans-serif; }
     body { background: #f6f7fb; color: #1f2937; line-height: 1.6; }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* HEADER */
-    .site-header {
-      background: #fff;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 12px 0;
+    /* ===== TOP OFFER BAR (same as about.html) ===== */
+    .top-offer { background: #58e56d; padding: 14px 20px; }
+    .offer-container {
+      max-width: 1200px; margin: 0 auto; display: flex;
+      justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap;
     }
-    .header-inner {
+    .top-offer p { margin: 0; color: #000; font-size: 16px; font-weight: 500; }
+    .top-offer strong { font-size: 20px; font-weight: 800; }
+    .offer-btn {
+      background: #000; color: #fff; text-decoration: none;
+      padding: 10px 28px; border-radius: 8px; font-weight: 700; transition: .3s;
+    }
+    .offer-btn:hover { background: #222; }
+    @media (max-width:768px) {
+      .offer-container { flex-direction: column; gap: 12px; text-align: center; }
+      .top-offer p { font-size: 15px; }
+      .offer-btn { width: 180px; text-align: center; }
+    }
+
+    /* ===== HEADER (same as about.html) ===== */
+    header {
+      position: sticky; top: 0; z-index: 999;
+      background: #fff; border-bottom: 1px solid #eee;
+    }
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; gap: 10px;
+    }
+    .logo-img { height: 45px; width: auto; max-width: 120px; object-fit: contain; display: block; }
+    .cta-btn {
+      background: #4ade80; color: #fff; padding: 8px 16px;
+      border-radius: 8px; font-weight: 700; text-decoration: none; white-space: nowrap;
+    }
+    .cta-btn:hover { background: #22c55e; color: #fff; }
+    .navbar { flex: 1; display: flex; justify-content: center; }
+    .nav-links {
+      display: flex; align-items: center; list-style: none; gap: 30px;
+      margin: 0; padding: 0;
+    }
+    .nav-links li a {
+      text-decoration: none; color: #333; font-weight: 600; font-size: 16px; transition: .3s;
+    }
+    .nav-links li a:hover { color: #4ade80; }
+
+    @media (max-width:768px) {
+      .nav { flex-direction: column; gap: 10px; padding: 10px 0; }
+      .logo-img { height: 40px; }
+      .navbar { width: 100%; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+      .nav-links li a { font-size: 15px; }
+      .cta-btn { width: 100%; text-align: center; }
+    }
+
+    /* ===== HEADER BOTTOM (same as about.html) ===== */
+    .header_bottom {
+      background: #4ade80;
+      padding: 14px 0;
+      text-align: center;
+    }
+    .header_bottom p {
+      margin: 0;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: center;
+      gap: 18px;
       flex-wrap: wrap;
-      gap: 12px;
+      font-weight: 600;
+      color: #0f172a;
     }
-    .logo img { height: 45px; width: auto; }
-    .header-phone a {
+    .header_bottom span { font-size: 17px; }
+
+    .round_btn {
+      display: inline-block;
+      padding: 10px 28px;
+      border-radius: 50px;
       background: #4ade80;
       color: #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
       font-weight: 700;
       text-decoration: none;
-      display: inline-block;
-      transition: .3s;
+      border: 2px solid #4ade80;
+      font-size: 15px;
     }
-    .header-phone a:hover { background: #22c55e; }
-    .header-top {
-      background: #dcfce7;
-      padding: 8px 0;
-      text-align: center;
-      font-weight: 500;
-      font-size: 14px;
-      color: #1f2937;
+    .round_btn:hover {
+      background: #22c55e;
+      border-color: #22c55e;
+      color: #fff;
+      text-decoration: none;
     }
-    .header-top strong { color: #16a34a; }
+    .round_btn.outline_dark {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+    .round_btn.outline_dark:hover {
+      background: #fff;
+      color: #4ade80;
+    }
 
-    /* HERO */
+    @media (max-width:768px) {
+      .header_bottom p { flex-direction: column; gap: 12px; }
+      .header_bottom span { font-size: 15px; }
+    }
+
+    /* ===== HERO ===== */
     .hero {
       padding: 60px 0 50px;
       background: #dcfce7;
@@ -88,7 +160,7 @@
       .hero img { max-width: 100%; }
     }
 
-    /* SECTION */
+    /* ===== SECTION ===== */
     .section { padding: 60px 0; }
     .section-title {
       text-align: center;
@@ -105,7 +177,7 @@
       font-size: 17px;
     }
 
-    /* FEATURE GRID */
+    /* ===== FEATURE GRID ===== */
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(3,1fr);
@@ -128,7 +200,7 @@
 
     @media (max-width:768px) { .feature-grid { grid-template-columns: 1fr; } }
 
-    /* STEPS */
+    /* ===== STEPS ===== */
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(3,1fr);
@@ -153,7 +225,7 @@
     .step-box p { color: #666; font-size: 14px; }
     @media (max-width:768px) { .steps-grid { grid-template-columns: 1fr; } }
 
-    /* CTA */
+    /* ===== CTA ===== */
     .cta {
       background: #4ade80;
       color: #fff;
@@ -177,70 +249,55 @@
     }
     .cta .btn-primary:hover { background: #f0fdf4; }
 
-    /* FOOTER */
-    .footer-replacement {
-      background: #0f172a;
-      color: #fff;
-      padding: 50px 0 40px;
-      margin-top: 40px;
-    }
-    .footer-bottom {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 10px;
-    }
-    .footer-bottom h3 {
-      font-size: 32px;
-      font-weight: 700;
-      color: #4ade80;
-    }
-    .footer-bottom p {
-      opacity: 0.85;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .footer-bottom .copy {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,.1);
-      width: 100%;
-      font-size: 14px;
-      opacity: 0.7;
-    }
-    .footer-bottom .disclaimer {
-      font-size: 13px;
-      opacity: 0.6;
-      max-width: 800px;
-      margin: 8px auto 0;
-      line-height: 1.6;
-    }
-    @media (max-width:768px) {
-      .cta h2 { font-size: 26px; }
-      .cta .btn-primary { font-size: 16px; padding: 12px 24px; }
-      .footer-bottom h3 { font-size: 26px; }
-    }
+    /* ===== FOOTER ===== */
+    footer { background: #0f172a; color: #fff; padding: 60px 0; text-align: center; }
+    footer h3 { font-size: 32px; margin-bottom: 10px; }
+    .footer-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 25px 0; }
+    .footer-links a { background: #fff; color: #4ade80; padding: 10px 20px; border-radius: 30px; font-weight: 700; text-decoration: none; }
+    .copy { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); }
+    .disclaimer { margin-top: 18px; opacity: .8; font-size: 13px; }
   </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<div class="header-top">
-  Your Intuit QuickBooks Success Partner — Expert Setup & Integration
+<!-- ===== TOP OFFER BAR (same as about.html) ===== -->
+<div class="top-offer">
+  <div class="offer-container">
+    <p>SUMMER SAVINGS <strong>90% OFF</strong> Quickbooks Assistance for 3 months* Ends 8/27</p>
+    <a href="tel:+1-888-864-6432" class="offer-btn">Buy now</a>
+  </div>
 </div>
-<header class="site-header">
-  <div class="container header-inner">
+
+<!-- ===== HEADER (same as about.html) ===== -->
+<header>
+  <div class="container nav">
     <div class="logo">
-      <img src="./images/logo22.png" alt="QuickBooks Assistance">
+      <a href="index.html"><img src="images/logo22.png" alt="Quickbooks Assistance Logo" class="logo-img"></a>
     </div>
-    <div class="header-phone">
-      <a href="tel:+18004421838">📞 +1-888-864-6432</a>
-    </div>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="./about.html">About Us</a></li>
+        <li><a href="./service.html">Services</a></li>
+        <li><a href="./contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <a href="tel:+18004421838" class="cta-btn">📞 +1-888-864-6432</a>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- ===== HEADER BOTTOM (same as about.html) ===== -->
+<div class="header_bottom">
+  <div class="container">
+    <p>
+      <span>🚀 Expert QuickBooks Migration &amp; Support</span>
+      <a class="round_btn outline_dark" href="tel:+18888646432"><i class="fa fa-phone"></i> +1-888-864-6432</a>
+      <a class="round_btn" href="#contact">Free Consultation</a>
+    </p>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
 <section class="hero">
   <div class="container hero-grid">
     <div>
@@ -254,7 +311,7 @@
   </div>
 </section>
 
-<!-- WHY PROPER SETUP MATTERS -->
+<!-- ===== WHY PROPER SETUP MATTERS ===== -->
 <section class="section">
   <div class="container">
     <h2 class="section-title">Why <span>Proper Setup</span> Matters</h2>
@@ -276,7 +333,7 @@
   </div>
 </section>
 
-<!-- BENEFITS -->
+<!-- ===== BENEFITS ===== -->
 <section class="section" style="background:#dcfce7;">
   <div class="container">
     <h2 class="section-title">Benefits of Our <span>Setup Services</span></h2>
@@ -310,7 +367,7 @@
   </div>
 </section>
 
-<!-- STEP-BY-STEP -->
+<!-- ===== STEP-BY-STEP ===== -->
 <section class="section">
   <div class="container">
     <h2 class="section-title">Step-by-Step <span>Setup Guide</span></h2>
@@ -332,7 +389,7 @@
   </div>
 </section>
 
-<!-- INTEGRATIONS -->
+<!-- ===== INTEGRATIONS ===== -->
 <section class="section" style="background:#dcfce7;">
   <div class="container">
     <h2 class="section-title">QuickBooks <span>Integration</span> Services</h2>
@@ -354,7 +411,7 @@
   </div>
 </section>
 
-<!-- CTA + FOOTER -->
+<!-- ===== CTA ===== -->
 <section class="section" id="contact">
   <div class="container">
     <div class="cta">
@@ -366,17 +423,16 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<div class="footer-replacement">
+<!-- ===== FOOTER ===== -->
+<footer>
   <div class="container">
-    <div class="footer-bottom">
-      <h3>Quickbooks Assistance</h3>
-      <p>Professional support and bookkeeping assistance services.</p>
-      <div class="copy">© 2026 Quickbooks Assistance. All Rights Reserved.</div>
-      <div class="disclaimer">Disclaimer: The product images and names displayed above are for reference purposes only. Quickbooks Assistance is an independent service provider and is not affiliated with or endorsed by any third-party brand. All trademarks belong to their respective owners.</div>
-    </div>
+    <h3>Quickbooks Assistance</h3>
+    <p>Professional support and bookkeeping assistance services.</p>
+    <div class="footer-links"></div>
+    <div class="copy">© 2026 Quickbooks Assistance. All Rights Reserved.</div>
+    <p class="disclaimer">Disclaimer: The product images and names displayed above are for reference purposes only. Quickbooks Assistance is an independent service provider and is not affiliated with or endorsed by any third-party brand. All trademarks belong to their respective owners.</p>
   </div>
-</div>
+</footer>
 
 </body>
 </html>

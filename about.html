@@ -32,7 +32,7 @@
     }
     .top_text strong { font-weight: 800; font-size: 18px; }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER (EXACT copy from index) ===== */
     #header {
       background: #fff;
       padding: 12px 0;
@@ -533,39 +533,159 @@
 </head>
 <body>
 
-<!-- ===== TOP BAR ===== -->
-<div class="top_text text-center">
-  <strong>🔥 SUMMER SAVINGS – 90% OFF</strong> QuickBooks Assistance for 3 months* Ends 8/27
+<!-- ===== TOP OFFER ===== -->
+<div class="top-offer">
+  <div class="offer-container">
+    <p>SUMMER SAVINGS <strong>90% OFF</strong> Quickbooks Assistance for 3 months* Ends 8/27</p>
+    <a href="tel:+1-888-864-6432" class="offer-btn">Buy now</a>
+  </div>
 </div>
 
 <!-- ===== HEADER ===== -->
-<header id="header">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-3 col-xs-8">
-        <div id="logo">
-          <a href="index.html">
-            <img src="./images/logo22.png" alt="QuickBooks Assistance" style="max-height:50px;width:auto;">
-          </a>
-        </div>
-      </div>
-      <div class="col-sm-8 hidden-xs">
-        <ul id="main-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-1 hidden-xs text-right">
-        <a href="tel:+18888646432" class="top_cart"><i class="fa fa-phone"></i></a>
-      </div>
-      <div class="col-xs-4 visible-xs text-right">
-        <button class="openbtn" onclick="openNav()">☰</button>
-      </div>
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <a href="index.html"><img src="images/logo22.png" alt="Quickbooks Assistance Logo" class="logo-img"></a>
     </div>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="./about.html">About Us</a></li>
+        <li><a href="./service.html">Services</a></li>
+        <li><a href="./contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <a href="tel:+18004421838" class="cta-btn">📞 +1-888-864-6432</a>
   </div>
 </header>
+
+<!-- ===== HEADER BOTTOM BAR ===== -->
+<div class="header_bottom">
+  <div class="container">
+    <p>
+      <span>🚀 Expert QuickBooks Migration &amp; Support</span>
+      <a class="round_btn outline_dark" href="tel:+18888646432"><i class="fa fa-phone"></i> +1-888-864-6432</a>
+      <a class="round_btn" href="#contact">Free Consultation</a>
+    </p>
+  </div>
+</div>
+<style>
+    /* ===== RESET & BASE ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: #f6f7fb;
+      color: #1f2937;
+      line-height: 1.5;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* ===== TOP OFFER BAR ===== */
+    .top-offer { background: #58e56d; padding: 14px 20px; }
+    .offer-container {
+      max-width: 1200px; margin: 0 auto; display: flex;
+      justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap;
+    }
+    .top-offer p { margin: 0; color: #000; font-size: 16px; font-weight: 500; }
+    .top-offer strong { font-size: 20px; font-weight: 800; }
+    .offer-btn {
+      background: #000; color: #fff; text-decoration: none;
+      padding: 10px 28px; border-radius: 8px; font-weight: 700; transition: .3s;
+    }
+    .offer-btn:hover { background: #222; }
+    @media (max-width:768px) {
+      .offer-container { flex-direction: column; gap: 12px; text-align: center; }
+      .top-offer p { font-size: 15px; }
+      .offer-btn { width: 180px; text-align: center; }
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky; top: 0; z-index: 999;
+      background: #fff; border-bottom: 1px solid #eee;
+    }
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; gap: 10px;
+    }
+    .logo-img { height: 45px; width: auto; max-width: 120px; object-fit: contain; display: block; }
+    .cta-btn {
+      background: #4ade80; color: #fff; padding: 8px 16px;
+      border-radius: 8px; font-weight: 700; text-decoration: none; white-space: nowrap;
+    }
+    .cta-btn:hover { background: #22c55e; color: #fff; }
+    .navbar { flex: 1; display: flex; justify-content: center; }
+    .nav-links {
+      display: flex; align-items: center; list-style: none; gap: 30px;
+      margin: 0; padding: 0;
+    }
+    .nav-links li a {
+      text-decoration: none; color: #333; font-weight: 600; font-size: 16px; transition: .3s;
+    }
+    .nav-links li a:hover { color: #4ade80; }
+
+    @media (max-width:768px) {
+      .nav { flex-direction: column; gap: 10px; padding: 10px 0; }
+      .logo-img { height: 40px; }
+      .navbar { width: 100%; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+      .nav-links li a { font-size: 15px; }
+      .cta-btn { width: 100%; text-align: center; }
+    }
+
+    /* ===== HEADER BOTTOM BAR ===== */
+    .header_bottom {
+      background: #4ade80;
+      padding: 14px 0;
+      text-align: center;
+    }
+    .header_bottom p {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .header_bottom span { font-size: 17px; }
+
+    .round_btn {
+      display: inline-block;
+      padding: 10px 28px;
+      border-radius: 50px;
+      background: #4ade80;
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid #4ade80;
+      font-size: 15px;
+    }
+    .round_btn:hover {
+      background: #22c55e;
+      border-color: #22c55e;
+      color: #fff;
+      text-decoration: none;
+    }
+    .round_btn.outline_dark {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+    .round_btn.outline_dark:hover {
+      background: #fff;
+      color: #4ade80;
+    }
+
+    @media (max-width:768px) {
+      .header_bottom p { flex-direction: column; gap: 12px; }
+      .header_bottom span { font-size: 15px; }
+    }
+
+    /* ===== SPACER FOR DEMO ===== */
+    .spacer { padding: 60px 0; text-align: center; color: #666; }
+  </style>
 
 <!-- ===== MOBILE NAV ===== -->
 <div id="main-nav" style="display:none;">
@@ -578,16 +698,6 @@
   </ul>
 </div>
 
-<!-- ===== HEADER BOTTOM ===== -->
-<div class="header_bottom">
-  <div class="container">
-    <p>
-      <span>🚀 Expert QuickBooks Migration &amp; Support</span>
-      <a class="round_btn outline_dark" href="tel:+18888646432"><i class="fa fa-phone"></i> +1-888-864-6432</a>
-      <a class="round_btn" href="#contact">Free Consultation</a>
-    </p>
-  </div>
-</div>
 
 <!-- ===== MAIN ===== -->
 <main>
