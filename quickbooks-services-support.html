@@ -82,24 +82,6 @@
       .cta-btn { width: 100%; text-align: center; }
     }
 
-    /* ===== HEADER BOTTOM (same as about.html) ===== */
-    .header_bottom {
-      background: #4ade80;
-      padding: 14px 0;
-      text-align: center;
-    }
-    .header_bottom p {
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      font-weight: 600;
-      color: #0f172a;
-    }
-    .header_bottom span { font-size: 17px; }
-
     .round_btn {
       display: inline-block;
       padding: 10px 28px;
@@ -453,6 +435,7 @@
       }
       .header_bottom span { font-size: 14px; }
     }
+    
   </style>
 </head>
 
@@ -484,16 +467,7 @@
     </div>
   </header>
 
-  <!-- ===== HEADER BOTTOM (same as about.html) ===== -->
-  <div class="header_bottom">
-    <div class="container">
-      <p>
-        <span>🚀 Expert QuickBooks Migration &amp; Support</span>
-        <a class="round_btn outline_dark" href="tel:+18888646432"><i class="fa fa-phone"></i> +1-888-864-6432</a>
-        <a class="round_btn" href="#contact">Free Consultation</a>
-      </p>
-    </div>
-  </div>
+
 
   <!-- MAIN -->
   <main>
@@ -742,7 +716,7 @@
         <div class="width_100 text_block_gap">
           <div class="row flex_row">
             <div class="col-sm-6">
-              <img src="./images/servicesupport/switch-quickbooks-online-to-desktop.webp" loading="lazy" alt="Switch from Online to Desktop" title="Switching from QuickBooks Online to Desktop" width="610" height="520" class="img-responsive">
+              <img   src="./images/servicesupport/switch-quickbooks-online-to-desktop.webp" loading="lazy" alt="Switch from Online to Desktop" title="Switching from QuickBooks Online to Desktop" width="610" height="520" class="img-responsive">
             </div>
             <div class="col-sm-6">
               <h2 style="font-size:28px; font-weight:800; color:#111827;">Switch Online to Desktop Enterprise</h2>
@@ -859,6 +833,10 @@
       el.classList.toggle("active");
     }
   </script>
-
+<style>
+  .col-sm-6 img {
+    border-radius: 3%;
+  }
+</style>
 </body>
 </html>
