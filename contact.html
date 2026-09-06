@@ -436,7 +436,7 @@
         <li><a href="./contact.html">Contact Us</a></li>
       </ul>
     </nav>
-    <a href="tel:+18004421838" class="cta-btn">📞 +1-888-864-6432</a>
+    <a href="tel:+18888646432" class="cta-btn">📞 +1-888-864-6432</a>
   </div>
 </header>
 
@@ -462,7 +462,7 @@
           <div class="w3-form-card">
             <h3>Drop Us a Line</h3>
             <span class="sub">We'll respond within 24 hours</span>
-            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <form id="contactForm" action="#" method="POST">
               <input type="hidden" name="access_key" value="c9fd6b62-5866-4b03-9db1-cb20e3c150e2">
               <div class="form-row">
                 <div>
@@ -604,7 +604,7 @@
       <h2 style="font-size:36px; font-weight:800; color:#fff; margin-bottom:15px;">Ready to Get <span style="color:#4ade80;">Started?</span></h2>
       <p class="large_text" style="color:#cbd5e1; max-width:600px; margin:0 auto 25px;">Have questions before or after purchase? Our support team is ready to help.</p>
       <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-        <a href="tel:+18004421838" class="round_btn" style="font-size:18px; padding:14px 40px; background:#4ade80; border-color:#4ade80; color:#0f172a;">
+        <a href="tel:+18888646432" class="round_btn" style="font-size:18px; padding:14px 40px; background:#4ade80; border-color:#4ade80; color:#0f172a;">
           <i class="fa fa-phone"></i> +1-888-864-6432
         </a>
         <a href="mailto:support@quickbooksassistance.com" class="round_btn" style="font-size:18px; padding:14px 40px; background:transparent; border-color:#fff; color:#fff;">
@@ -670,6 +670,7 @@
 
       if (!valid) return;
 
+      // Prepare form data
       const formData = new FormData();
       formData.append('access_key', 'c9fd6b62-5866-4b03-9db1-cb20e3c150e2');
       formData.append('name', nameInput.value.trim());
@@ -678,6 +679,7 @@
       formData.append('message', msgInput.value.trim());
       formData.append('subject', 'New QuickBooks Assistance Contact');
 
+      // Submit using fetch
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData
