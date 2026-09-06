@@ -252,9 +252,216 @@
     .title { text-align: center; margin-bottom: 35px; }
     .title h2 { font-size: 32px; }
     .title p { color: #666; margin-top: 8px; }
+
+    /* ========== STICKY BOTTOM POPUP STYLES ========== */
+    /* No body padding by default - popup overlays content */
+    .sticky-bottom-popup {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10000;
+      background: #1a1a2e;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+      transition: all 0.4s ease-in-out;
+      opacity: 0;
+      transform: translateY(100%);
+      pointer-events: none;
+    }
+
+    .sticky-bottom-popup.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .sticky-bottom-popup-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .sticky-popup-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .sticky-popup-left .icon-wrap {
+      background: #4ade80;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 24px;
+    }
+
+    .sticky-popup-left .popup-text {
+      color: #fff;
+    }
+
+    .sticky-popup-left .popup-text .popup-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .sticky-popup-left .popup-text .popup-subtitle {
+      font-size: 14px;
+      color: #a0aec0;
+    }
+
+    .sticky-popup-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .sticky-popup-btn {
+      background: #4ade80;
+      color: #1a1a2e;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .sticky-popup-btn:hover {
+      background: #22c55e;
+      transform: scale(1.02);
+    }
+
+    .sticky-popup-close {
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sticky-popup-close:hover {
+      background: rgba(255,255,255,0.2);
+      transform: rotate(90deg);
+    }
+
+    .sticky-popup-phone {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 8px 16px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .sticky-popup-phone:hover {
+      border-color: #4ade80;
+      background: rgba(74,222,128,0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sticky-bottom-popup-inner {
+        flex-direction: column;
+        padding: 15px 15px;
+        gap: 10px;
+      }
+
+      .sticky-popup-left {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .sticky-popup-left .popup-text .popup-title {
+        font-size: 15px;
+      }
+
+      .sticky-popup-left .popup-text .popup-subtitle {
+        font-size: 12px;
+      }
+
+      .sticky-popup-right {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .sticky-popup-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .sticky-popup-phone {
+        font-size: 15px;
+        padding: 6px 14px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .sticky-popup-left .icon-wrap {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .sticky-popup-right {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .sticky-popup-phone {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .sticky-popup-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Hide popup when scrolled to bottom */
+    .sticky-bottom-popup.hide-on-scroll {
+      opacity: 0 !important;
+      transform: translateY(100%) !important;
+      pointer-events: none !important;
+    }
   </style>
 </head>
 <body>
+
 <!-- TOP OFFER -->
 <div class="top-offer">
   <div class="offer-container">
@@ -285,7 +492,7 @@
 <section class="hero" id="about">
   <div class="container hero-grid">
     <div>
-      <h1>Your Quickbooks Assistance </h1>
+      <h1>Your Quickbooks Support Hub</h1>
       <h2>Expert Help for Errors, Migration & Setup</h2>
       <p>Transition from Desktop to Cloud Accounting with confidence. We handle secure data migration, provide expert troubleshooting, and guarantee zero data loss every step of the way.</p>
       <div class="hero-actions">
@@ -437,8 +644,8 @@
 <section class="qb-errors-section">
   <div class="container">
     <div class="section-heading">
-      <h2>Common QuickBooks Issues & Error Solutions</h2>
-      <p>QuickBooks hiccups can happen anytime—whether you're installing, updating, running payroll, or accessing files. Check out the most common ones below.</p>
+      <h2>Most Common Quickbooks Errors</h2>
+      <p>Quickbooks errors can occur during installation, updates, payroll processing, or when accessing company files. Here are the most frequently encountered ones.</p>
     </div>
     <div class="qb-grid">
       <div class="qb-item"><button class="qb-question">Error 1303 (Installation)</button><div class="qb-answer"><p>Permission issue during installation when installer cannot access directory.</p></div></div>
@@ -513,14 +720,38 @@
   </div>
 </footer>
 
-<!-- SCRIPTS -->
+<!-- ========== STICKY BOTTOM POPUP ========== -->
+<div id="stickyPopup" class="sticky-bottom-popup">
+  <div class="sticky-bottom-popup-inner">
+    <div class="sticky-popup-left">
+      <div class="icon-wrap">💬</div>
+      <div class="popup-text">
+        <div class="popup-title">Need QuickBooks Help?</div>
+        <div class="popup-subtitle">Get expert assistance for errors, migration & setup</div>
+      </div>
+    </div>
+    <div class="sticky-popup-right">
+      <a href="tel:+1-888-864-6432" class="sticky-popup-phone">📞 +1-888-864-6432</a>
+      <a href="#" class="sticky-popup-btn" id="popupChatBtn">💬 Chat Now</a>
+      <button class="sticky-popup-close" id="popupCloseBtn" aria-label="Close popup">✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCRIPTS ========== -->
 <script>
-  document.querySelectorAll(".qb-question").forEach(btn=>{
-    btn.addEventListener("click",()=>{
+  // ------------------------------
+  // QB Accordion
+  // ------------------------------
+  document.querySelectorAll(".qb-question").forEach(btn => {
+    btn.addEventListener("click", () => {
       btn.parentElement.classList.toggle("active");
     });
   });
 
+  // ------------------------------
+  // Contact Form Handler
+  // ------------------------------
   const form = document.getElementById('contactForm');
   const nameInput = document.getElementById('name');
   const phoneInput = document.getElementById('phone');
@@ -535,26 +766,22 @@
     e.preventDefault();
     let valid = true;
 
-    // Reset errors
     nameErr.style.display = 'none';
     phoneErr.style.display = 'none';
     emailErr.style.display = 'none';
     successDiv.style.display = 'none';
 
-    // Validate name
     if (!nameInput.value.trim()) {
       nameErr.style.display = 'block';
       valid = false;
     }
 
-    // Validate phone (basic: at least 7 digits)
     const phoneVal = phoneInput.value.trim().replace(/\D/g, '');
     if (phoneVal.length < 7) {
       phoneErr.style.display = 'block';
       valid = false;
     }
 
-    // Validate email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
       emailErr.style.display = 'block';
@@ -563,7 +790,6 @@
 
     if (!valid) return;
 
-    // Build form data
     const formData = new FormData();
     formData.append('access_key', 'c9fd6b62-5866-4b03-9db1-cb20e3c150e2');
     formData.append('name', nameInput.value.trim());
@@ -581,9 +807,7 @@
       if (data.success) {
         successDiv.style.display = 'block';
         form.reset();
-        setTimeout(() => {
-          successDiv.style.display = 'none';
-        }, 6000);
+        setTimeout(() => { successDiv.style.display = 'none'; }, 6000);
       } else {
         alert('Something went wrong. Please try again later.');
       }
@@ -592,7 +816,202 @@
       alert('Network error. Please check your connection.');
     });
   });
+
+  // ==============================================
+  // STICKY BOTTOM POPUP - CONTROLLER (Fixed)
+  // ==============================================
+  (function() {
+    const popup = document.getElementById('stickyPopup');
+    const closeBtn = document.getElementById('popupCloseBtn');
+    const chatBtn = document.getElementById('popupChatBtn');
+
+    // --- State ---
+    let isPopupVisible = false;
+    let popupClosed = false;
+    let isAtBottom = false;
+
+    // --- Functions ---
+    function showPopup() {
+      if (popupClosed) return;
+      if (isPopupVisible) return;
+      if (isAtBottom) return;
+
+      popup.style.display = 'block';
+      // Force reflow
+      void popup.offsetWidth;
+      popup.classList.add('visible');
+      isPopupVisible = true;
+
+      // Start timer to hide after 10 seconds if not interacted
+      if (window.popupAutoHideTimer) {
+        clearTimeout(window.popupAutoHideTimer);
+      }
+      window.popupAutoHideTimer = setTimeout(function() {
+        if (isPopupVisible && !popupClosed) {
+          hidePopup();
+        }
+      }, 10000);
+    }
+
+    function hidePopup() {
+      if (!isPopupVisible) return;
+      popup.classList.remove('visible');
+      
+      // Wait for transition to complete before hiding
+      setTimeout(function() {
+        if (!popup.classList.contains('visible')) {
+          popup.style.display = 'none';
+        }
+      }, 400);
+
+      isPopupVisible = false;
+
+      if (window.popupAutoHideTimer) {
+        clearTimeout(window.popupAutoHideTimer);
+      }
+    }
+
+    function closePopupPermanently() {
+      popupClosed = true;
+      hidePopup();
+      // Store in session storage so it doesn't show again in this session
+      try {
+        sessionStorage.setItem('stickyPopupClosed', 'true');
+      } catch(e) {}
+    }
+
+    // --- Scroll detection for bottom of page ---
+    function checkScrollPosition() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      // Check if user is at or near the bottom
+      const scrollBottom = scrollTop + windowHeight;
+      const nearBottom = (docHeight - scrollBottom) < 150;
+
+      if (nearBottom) {
+        isAtBottom = true;
+        // If popup is visible, hide it when user scrolls to bottom
+        if (isPopupVisible) {
+          hidePopup();
+        }
+      } else {
+        isAtBottom = false;
+        // If popup is not visible and not closed, show it after scrolling a bit
+        if (!isPopupVisible && !popupClosed && scrollTop > 400) {
+          showPopup();
+        }
+      }
+    }
+
+    // --- Events ---
+    // Close button
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        closePopupPermanently();
+      });
+    }
+
+    // Chat button - opens chat and closes popup permanently
+    if (chatBtn) {
+      chatBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Open LiveChat if available
+        if (window.LiveChatWidget) {
+          window.LiveChatWidget.call('maximize');
+        }
+        closePopupPermanently();
+      });
+    }
+
+    // Click outside popup to close permanently
+    document.addEventListener('click', function(e) {
+      if (!popup) return;
+      if (popup.classList.contains('visible')) {
+        const isClickInside = popup.contains(e.target);
+        if (!isClickInside) {
+          closePopupPermanently();
+        }
+      }
+    });
+
+    // Scroll handling with throttle
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+      if (scrollTimeout) {
+        cancelAnimationFrame(scrollTimeout);
+      }
+      scrollTimeout = requestAnimationFrame(function() {
+        checkScrollPosition();
+      });
+    }, { passive: true });
+
+    // Check on resize
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+      if (resizeTimeout) {
+        cancelAnimationFrame(resizeTimeout);
+      }
+      resizeTimeout = requestAnimationFrame(function() {
+        checkScrollPosition();
+      });
+    }, { passive: true });
+
+    // --- Initialization ---
+    // Check if popup was closed in this session
+    try {
+      if (sessionStorage.getItem('stickyPopupClosed') === 'true') {
+        popupClosed = true;
+        popup.style.display = 'none';
+        return;
+      }
+    } catch(e) {}
+
+    // Show popup after a delay if not at bottom
+    setTimeout(function() {
+      if (!popupClosed && !isAtBottom) {
+        showPopup();
+      }
+    }, 3000);
+
+    // Also show on first scroll if not shown yet
+    let initialCheckDone = false;
+    window.addEventListener('scroll', function() {
+      if (!initialCheckDone && !popupClosed && !isPopupVisible && !isAtBottom) {
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollY > 300) {
+          initialCheckDone = true;
+          showPopup();
+        }
+      }
+    }, { passive: true });
+
+    // Re-show popup after user scrolls back up (if not closed)
+    let lastScrollY = 0;
+    window.addEventListener('scroll', function() {
+      const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const isScrollingUp = currentScrollY < lastScrollY;
+      lastScrollY = currentScrollY;
+
+      // If user scrolls up significantly and popup is not visible and not closed
+      if (isScrollingUp && !popupClosed && !isPopupVisible && currentScrollY < 300) {
+        isAtBottom = false;
+        clearTimeout(window.popupReopenTimer);
+        window.popupReopenTimer = setTimeout(function() {
+          if (!popupClosed && !isPopupVisible && !isAtBottom) {
+            showPopup();
+          }
+        }, 1000);
+      }
+    }, { passive: true });
+
+    // Check initial position on load
+    setTimeout(checkScrollPosition, 500);
+  })();
 </script>
+
 <!-- LiveChat -->
 <script>
   window.__lc = window.__lc || {};
@@ -602,5 +1021,6 @@
   ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
 </script>
 <noscript><a href="https://www.livechat.com/chat-with/19882328/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+
 </body>
 </html>
