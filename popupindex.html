@@ -329,27 +329,6 @@
       flex-wrap: wrap;
     }
 
-    .sticky-popup-btn {
-      background: #4ade80;
-      color: #1a1a2e;
-      padding: 12px 28px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .sticky-popup-btn:hover {
-      background: #22c55e;
-      transform: scale(1.02);
-    }
-
     .sticky-popup-close {
       background: rgba(255,255,255,0.1);
       border: none;
@@ -414,13 +393,6 @@
         justify-content: center;
       }
 
-      .sticky-popup-btn {
-        padding: 10px 20px;
-        font-size: 14px;
-        width: 100%;
-        justify-content: center;
-      }
-
       .sticky-popup-phone {
         font-size: 15px;
         padding: 6px 14px;
@@ -446,10 +418,6 @@
         text-align: center;
       }
       
-      .sticky-popup-btn {
-        width: 100%;
-        justify-content: center;
-      }
     }
 
     /* Hide popup when scrolled to bottom */
@@ -484,7 +452,7 @@
         <li><a href="./contact.html">Contact Us</a></li>
       </ul>
     </nav>
-    <a href="tel:+18888646432" class="cta-btn">📞 +1-888-864-6432</a>
+    <a href="tel:+1-888-864-6432" class="cta-btn">📞 +1-888-864-6432</a>
   </div>
 </header>
 
@@ -496,7 +464,7 @@
       <h2>Expert Help for Errors, Migration & Setup</h2>
       <p>Transition from Desktop to Cloud Accounting with confidence. We handle secure data migration, provide expert troubleshooting, and guarantee zero data loss every step of the way.</p>
       <div class="hero-actions">
-        <a href="tel:+18888646432" class="btn-primary">📞 +1-888-864-6432</a>
+        <a href="tel:+1-888-864-6432" class="btn-primary">📞 +1-888-864-6432</a>
         <a href="#services" class="btn-outline">Explore Our Services</a>
       </div>
       <br>
@@ -517,7 +485,7 @@
         <div class="form-error" id="nameError">Please enter your name</div>
 
         <label for="phone">Phone Number *</label>
-        <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
+        <input type="tel" id="phone" name="phone" placeholder="+1-888-864-6432" required>
         <div class="form-error" id="phoneError">Valid phone number required</div>
 
         <label for="email">Email *</label>
@@ -704,7 +672,7 @@
       <h2>Ready to Transition to Cloud Accounting?</h2>
       <p>Speak with our migration specialist today</p>
       <br>
-      <a href="tel:+18888646432" class="btn-primary" style="background:#fff;color:#18C10B;">📞 +1-888-864-6432</a>
+      <a href="tel:+1-888-864-6432" class="btn-primary" style="background:#fff;color:#18C10B;">📞 +1-888-864-6432</a>
     </div>
   </div>
 </section>
@@ -732,7 +700,6 @@
     </div>
     <div class="sticky-popup-right">
       <a href="tel:+1-888-864-6432" class="sticky-popup-phone">📞 +1-888-864-6432</a>
-      <a href="#" class="sticky-popup-btn" id="popupChatBtn">💬 Chat Now</a>
       <button class="sticky-popup-close" id="popupCloseBtn" aria-label="Close popup">✕</button>
     </div>
   </div>
@@ -823,7 +790,6 @@
   (function() {
     const popup = document.getElementById('stickyPopup');
     const closeBtn = document.getElementById('popupCloseBtn');
-    const chatBtn = document.getElementById('popupChatBtn');
 
     // --- State ---
     let isPopupVisible = false;
@@ -914,18 +880,6 @@
       });
     }
 
-    // Chat button - opens chat and closes popup permanently
-    if (chatBtn) {
-      chatBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        // Open LiveChat if available
-        if (window.LiveChatWidget) {
-          window.LiveChatWidget.call('maximize');
-        }
-        closePopupPermanently();
-      });
-    }
-
     // Click outside popup to close permanently
     document.addEventListener('click', function(e) {
       if (!popup) return;
@@ -1011,16 +965,6 @@
     setTimeout(checkScrollPosition, 500);
   })();
 </script>
-
-<!-- LiveChat -->
-<script>
-  window.__lc = window.__lc || {};
-  window.__lc.license = 19882328;
-  window.__lc.integration_name = "manual_channels";
-  window.__lc.product_name = "livechat";
-  ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
-</script>
-<noscript><a href="https://www.livechat.com/chat-with/19882328/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
 
 </body>
 </html>
